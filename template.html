@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>모닝 브리핑 · 2026.04.25</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: oklch(0.985 0.005 90);
+    --ink: oklch(0.18 0.01 80);
+    --ink-2: oklch(0.42 0.01 80);
+    --ink-3: oklch(0.62 0.01 80);
+    --line: oklch(0.92 0.005 80);
+    --paper: #ffffff;
+    --paper-2: oklch(0.965 0.008 85);
+    --moss: oklch(0.28 0.04 145);
+    --moss-ink: oklch(0.95 0.03 125);
+    --lime: oklch(0.88 0.18 125);
+    --lime-ink: oklch(0.30 0.10 140);
+    --lilac: oklch(0.82 0.06 290);
+    --lilac-ink: oklch(0.30 0.06 290);
+    --coral: oklch(0.82 0.10 40);
+    --coral-ink: oklch(0.40 0.12 35);
+    --shadow: 0 1px 0 rgba(0,0,0,.02), 0 12px 32px -16px rgba(20,20,20,.10);
+    --radius: 22px;
+    --radius-sm: 14px;
+    --gap: 16px;
+  }
+  html[data-theme="dark"]{
+    --bg: oklch(0.16 0.005 90);
+    --ink: oklch(0.96 0.01 90);
+    --ink-2: oklch(0.78 0.01 80);
+    --ink-3: oklch(0.58 0.01 80);
+    --line: oklch(0.26 0.005 80);
+    --paper: oklch(0.22 0.006 85);
+    --paper-2: oklch(0.20 0.006 85);
+    --moss: oklch(0.32 0.06 140);
+    --moss-ink: oklch(0.95 0.05 125);
+    --lime: oklch(0.88 0.20 125);
+    --lime-ink: oklch(0.20 0.08 140);
+    --lilac: oklch(0.70 0.09 290);
+    --lilac-ink: oklch(0.18 0.04 290);
+    --coral: oklch(0.78 0.13 38);
+    --coral-ink: oklch(0.22 0.07 35);
+    --shadow: 0 1px 0 rgba(255,255,255,.02), 0 16px 40px -20px rgba(0,0,0,.6);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-feature-settings:"ss03","cv11";
+    letter-spacing:-0.005em;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    transition: background .35s ease, color .35s ease;
+  }
+  .mono{font-family:"Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace; font-feature-settings:"tnum","ss01"; letter-spacing:0;}
+
+  .wrap{max-width:1320px;margin:0 auto;padding:28px 24px 80px;}
+  @media (max-width:1024px){.wrap{padding:24px 20px 72px}}
+  @media (max-width:560px){.wrap{padding:18px 14px 60px}}
+
+  /* HEADER */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--ink);position:relative;}
+  .brand .dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--ink);opacity:.18;animation:pulse 2.6s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:.18}50%{transform:scale(1.6);opacity:0}}
+  .brand .label{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2)}
+  .brand .label b{color:var(--ink);font-weight:600}
+
+  .top-actions{display:flex;align-items:center;gap:8px;}
+  .chip{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-size:12.5px;cursor:pointer;transition:transform .15s ease, background .25s ease;}
+  .chip:hover{transform:translateY(-1px);background:var(--paper-2)}
+  .chip svg{width:14px;height:14px}
+
+  .hero{display:grid;grid-template-columns: 1.4fr .6fr;gap:var(--gap);margin-bottom:var(--gap);}
+  @media (max-width:900px){.hero{grid-template-columns:1fr}}
+
+  .hero-left{
+    background:var(--paper);border-radius:var(--radius);padding:28px 28px 26px;border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    display:flex;flex-direction:column;gap:18px;justify-content:space-between;
+    min-height:240px;
+  }
+  .date-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .date-row .date{font-family:"Geist Mono",monospace;font-size:13px;color:var(--ink-3);letter-spacing:.04em}
+  .date-row .day-circle{
+    width:26px;height:26px;border-radius:50%;
+    border:1.2px solid var(--ink);
+    display:inline-grid;place-items:center;
+    font-size:12px;font-weight:600;color:var(--ink);
+    letter-spacing:0;
+  }
+  .date-row .weather{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:5px 11px 5px 9px;border-radius:999px;
+    background:var(--paper-2);border:1px solid var(--line);
+    font-size:12.5px;color:var(--ink);
+    margin-left:auto;
+  }
+  .date-row .weather svg{width:14px;height:14px;color:var(--coral-ink)}
+  html[data-theme="dark"] .date-row .weather svg{color:var(--lime)}
+  .date-row .weather .w-temp{font-family:"Geist Mono",monospace;font-weight:600;letter-spacing:.01em;}
+  .date-row .weather .w-temp .w-range{color:var(--ink-3);font-weight:400;margin-left:3px;}
+  .date-row .weather .w-loc{color:var(--ink-2);font-size:11.5px;padding-left:8px;border-left:1px solid var(--line);}
+  .greet{font-size:clamp(36px, 4.8vw, 56px);line-height:1.02;letter-spacing:-0.028em;font-weight:600;margin:0;}
+  .greet em{font-style:normal;font-weight:600;color:var(--ink);position:relative;}
+  .greet em::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.32em;background:var(--lime);z-index:-1;border-radius:2px;}
+  .summary-line{display:flex;flex-wrap:wrap;gap:18px 22px;color:var(--ink-2);font-size:14px;align-items:center;}
+  .summary-line .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line)}
+  .summary-line .pill .n{font-family:"Geist Mono",monospace;font-weight:600;color:var(--ink)}
+  .summary-line .pill .k{color:var(--ink-3);font-size:12.5px}
+
+  .hero-right{
+    background:var(--moss);color:var(--moss-ink);
+    border-radius:var(--radius);padding:24px;border:1px solid transparent;
+    display:flex;flex-direction:column;justify-content:space-between;gap:14px;min-height:240px;position:relative;overflow:hidden;
+  }
+  .hero-right .tag{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:color-mix(in oklab, var(--moss-ink) 75%, transparent);}
+  .hero-right h3{margin:0;font-size:22px;line-height:1.25;letter-spacing:-.01em;font-weight:500}
+  .hero-right .ai-mark{
+    position:absolute; right:-30px; top:-30px; width:160px;height:160px;border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, var(--lime), transparent 60%);
+    filter:blur(2px);opacity:.55;
+  }
+  .ai-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:"Geist Mono",monospace;font-size:11.5px;color:color-mix(in oklab, var(--moss-ink) 70%, transparent);}
+  .ai-foot .dotpulse{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 var(--lime);animation:pulse2 1.8s ease-out infinite}
+  @keyframes pulse2{0%{box-shadow:0 0 0 0 color-mix(in oklab, var(--lime) 60%, transparent)}80%,100%{box-shadow:0 0 0 14px transparent}}
+
+  /* BENTO */
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);}
+  .card{background:var(--paper);border-radius:var(--radius);border:1px solid var(--line);padding:22px;box-shadow:var(--shadow);position:relative;overflow:hidden;}
+  .card.flat{box-shadow:none}
+  .card .head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;}
+  .card .head .title{display:flex;align-items:center;gap:10px;}
+  .card .head .title .num{font-family:"Geist Mono",monospace;font-size:11px;color:var(--ink-3);letter-spacing:.08em}
+  .card .head .title h2{margin:0;font-size:14px;letter-spacing:.02em;font-weight:600;color:var(--ink)}
+  .card .head .title h2 .ko{color:var(--ink-2);font-weight:500;margin-left:6px;font-size:12.5px}
+  .iconbtn{width:28px;height:28px;display:grid;place-items:center;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--ink-2);cursor:pointer;transition:all .2s ease}
+  .iconbtn:hover{background:var(--paper-2);color:var(--ink)}
+  .iconbtn svg{width:14px;height:14px;transition:transform .25s ease}
+  .card.collapsed .body{display:none}
+  .card.collapsed .iconbtn.toggle svg{transform:rotate(-90deg)}
+
+  .col-12{grid-column: span 12}
+  .col-8{grid-column: span 8}
+  .col-7{grid-column: span 7}
+  .col-6{grid-column: span 6}
+  .col-5{grid-column: span 5}
+  .col-4{grid-column: span 4}
+  .col-3{grid-column: span 3}
+  @media (max-width:1024px){
+    .col-8,.col-7,.col-6,.col-5,.col-4,.col-3{grid-column: span 12}
+    .col-md-6{grid-column: span 6}
+    .col-md-12{grid-column: span 12}
+  }
+
+  /* RETRO */
+  .retro-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+  .retro-list li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--ink);line-height:1.5}
+  .retro-list li .bullet{width:18px;height:18px;flex:none;border-radius:6px;background:var(--paper-2);border:1px solid var(--line);display:grid;place-items:center;color:var(--ink-2);font-family:"Geist Mono",monospace;font-size:10px;margin-top:2px;}
+  .retro-list li .bullet.done{background:var(--lime);border-color:transparent;color:var(--lime-ink)}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .tag{display:inline-flex;align-items:center;padding:5px 10px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line);font-size:12px;color:var(--ink);cursor:pointer;font-family:"Geist Mono",monospace;letter-spacing:.01em;transition:all .2s ease;text-decoration:none}
+  .tag:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .tag .h{color:var(--ink-3);margin-right:2px}
+  .tag:hover .h{color:color-mix(in oklab, var(--bg) 70%, transparent)}
+
+  .ai-note{margin-top:16px;padding:12px 14px;border-radius:14px;background:color-mix(in oklab, var(--lime) 20%, var(--paper));border:1px dashed color-mix(in oklab, var(--lime) 50%, var(--ink-3));font-size:13px;color:var(--ink);line-height:1.55;display:flex;gap:10px;align-items:flex-start}
+  .ai-note .ai-ico{width:18px;height:18px;flex:none;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-family:"Geist Mono",monospace;font-size:10px;font-weight:600}
+  html[data-theme="dark"] .ai-note{background:color-mix(in oklab, var(--lime) 14%, var(--paper))}
+
+  /* SCHEDULE TIMELINE */
+  .timeline{display:grid;grid-template-columns:64px 1fr;gap:0;position:relative;}
+  .timeline::before{content:"";position:absolute;left:63px;top:6px;bottom:6px;width:1px;background:var(--line);}
+  .tl-row{display:contents;}
+  .tl-row .time-col{padding:14px 14px 0 0;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+  .tl-row .time-col .t{font-family:"Geist Mono",monospace;font-size:12px;color:var(--ink);letter-spacing:.01em;line-height:1;font-weight:500;}
+  .tl-row .time-col .t-end{font-family:"Geist Mono",monospace;font-size:10.5px;color:var(--ink-3);line-height:1;}
+  .tl-row .body-col{position:relative;padding:8px 0 8px 18px;}
+  .tl-row .body-col::before{content:"";position:absolute;left:-4.5px;top:18px;width:9px;height:9px;border-radius:50%;background:var(--paper);border:2px solid var(--ink-3);z-index:1;}
+  .tl-row.event .body-col::before{background:var(--ink);border-color:var(--ink);}
+  .tl-row.now .body-col::before{background:var(--lime);border-color:var(--lime);box-shadow:0 0 0 4px color-mix(in oklab, var(--lime) 30%, transparent);}
+  .ev-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 16px 12px;position:relative;overflow:hidden;transition:all .2s ease;}
+  .ev-card:hover{border-color:var(--ink);transform:translateY(-1px);}
+  .ev-card .accent-bar{position:absolute;left:0;top:12px;bottom:12px;width:3px;border-radius:0 2px 2px 0;background:var(--ink);}
+  .ev-card.now .accent-bar{background:var(--lime);}
+  .ev-card .ev-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:6px;}
+  .ev-card .ev-title{font-size:15px;font-weight:600;letter-spacing:-.01em;line-height:1.3;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .ev-card .badge-now{font-family:"Geist Mono",monospace;font-size:9.5px;letter-spacing:.1em;padding:3px 7px;border-radius:5px;background:var(--lime);color:var(--lime-ink);text-transform:uppercase;font-weight:600;}
+  .ev-card .dur{font-family:"Geist Mono",monospace;font-size:11px;color:var(--ink-3);white-space:nowrap;padding-top:3px;}
+  .ev-card .ev-meta{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink-2);align-items:center;margin-top:4px;}
+  .ev-card .ev-meta .m{display:inline-flex;align-items:center;gap:5px;}
+  .ev-card .ev-meta svg{width:12px;height:12px;color:var(--ink-3);}
+  .ev-card .avatars{display:inline-flex;}
+  .ev-card .avatars span{width:20px;height:20px;border-radius:50%;background:var(--paper-2);border:1.5px solid var(--paper);font-size:9px;font-weight:600;display:grid;place-items:center;color:var(--ink-2);margin-left:-5px;font-family:"Geist Mono",monospace;}
+  .ev-card .avatars span:first-child{margin-left:0;}
+  .ev-card .ev-actions{display:flex;gap:6px;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);}
+  .focus-card{padding:10px 14px;border-radius:12px;border:1px dashed color-mix(in oklab, var(--lime) 60%, var(--ink-3));background:color-mix(in oklab, var(--lime) 10%, var(--paper));color:var(--ink-2);display:flex;justify-content:space-between;align-items:center;gap:10px;}
+  html[data-theme="dark"] .focus-card{background:color-mix(in oklab, var(--lime) 8%, var(--paper));}
+  .focus-card .fc-l{display:flex;align-items:center;gap:10px;}
+  .focus-card .fc-l .ic{width:24px;height:24px;border-radius:7px;background:var(--lime);color:var(--lime-ink);display:grid;place-items:center;flex:none;}
+  .focus-card .fc-l .ic svg{width:13px;height:13px;}
+  .focus-card .fc-title{font-size:13px;font-weight:600;color:var(--ink);letter-spacing:-.005em;}
+  .focus-card .fc-sub{font-size:11.5px;color:var(--ink-2);font-family:"Geist Mono",monospace;margin-top:2px;}
+  .focus-card .fc-dur{font-family:"Geist Mono",monospace;font-size:11px;color:var(--ink-2);background:var(--paper);border:1px solid var(--line);padding:3px 8px;border-radius:999px;flex:none;}
+  .mini-btn{font-family:"Geist Mono",monospace;font-size:11px;padding:5px 9px;border-radius:7px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all .2s ease}
+  .mini-btn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .mini-btn.solid{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .mini-btn.solid:hover{background:transparent;color:var(--ink)}
+
+  /* EMAIL */
+  .email-list{display:flex;flex-direction:column;gap:8px}
+  .email{display:grid;grid-template-columns:36px 1fr auto;gap:12px;padding:12px 12px;border-radius:12px;align-items:center;cursor:pointer;border:1px solid transparent;transition:all .2s ease;text-decoration:none;color:inherit}
+  .email:hover{background:var(--paper-2);border-color:var(--line)}
+  .avatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:600;font-size:13px;color:var(--ink);background:var(--paper-2);border:1px solid var(--line);font-family:"Geist Mono",monospace;}
+  .email .who{font-size:12px;color:var(--ink-2);margin-bottom:2px;display:flex;gap:8px;align-items:center}
+  .email .who b{color:var(--ink);font-weight:600}
+  .email .subj{font-size:14px;font-weight:600;letter-spacing:-.005em;line-height:1.35;margin-bottom:3px}
+  .email .sum{font-size:12.5px;color:var(--ink-2);line-height:1.5}
+  .email .when{font-family:"Geist Mono",monospace;font-size:11px;color:var(--ink-3);align-self:flex-start;padding-top:2px;white-space:nowrap}
+
+  .nl{padding:14px;border-radius:14px;background:var(--paper-2);border:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+  .nl + .nl{margin-top:10px}
+  .nl .src{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);font-family:"Geist Mono",monospace;display:flex;align-items:center;gap:8px}
+  .nl .src .badge{padding:2px 7px;border-radius:5px;background:var(--ink);color:var(--bg);font-size:10px;letter-spacing:.06em}
+  .nl h4{margin:0;font-size:15px;font-weight:600;letter-spacing:-.005em;line-height:1.3}
+  .nl ul{margin:2px 0 0;padding-left:16px;font-size:13px;color:var(--ink-2);line-height:1.6}
+  .nl ul li{margin:0}
+  .nl .actions{display:flex;gap:6px;margin-top:4px}
+
+  /* IDEA OF THE DAY */
+  .idea{
+    grid-column: span 12;
+    background: linear-gradient(135deg, var(--coral) 0%, color-mix(in oklab, var(--coral) 70%, var(--lilac)) 100%);
+    color: var(--coral-ink);
+    border-radius: var(--radius); padding: 26px; border:1px solid transparent; position:relative; overflow:hidden;
+  }
+  .idea .stripe{position:absolute;inset:auto -40px -40px auto;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle at 30% 30%, color-mix(in oklab, var(--lime) 70%, transparent), transparent 65%);opacity:.7}
+  .idea-grid{display:grid;grid-template-columns: 1.2fr 1fr; gap:20px; position:relative; z-index:1}
+  @media (max-width:900px){.idea-grid{grid-template-columns:1fr}}
+  .idea .lab{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-family:"Geist Mono",monospace;color:color-mix(in oklab, var(--coral-ink) 80%, transparent)}
+  .idea h3{margin:6px 0 10px;font-size:30px;line-height:1.05;letter-spacing:-.02em;font-weight:600;}
+  .idea h3 .serif{font-weight:400;}
+  .idea .desc{font-size:14px;line-height:1.6;color:color-mix(in oklab, var(--coral-ink) 88%, transparent)}
+  .idea .meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+  .idea .meta .m{padding:10px 12px;background:color-mix(in oklab, white 40%, transparent);border-radius:12px;border:1px solid color-mix(in oklab, var(--coral-ink) 18%, transparent);}
+  html[data-theme="dark"] .idea .meta .m{background:color-mix(in oklab, black 25%, transparent);border-color:color-mix(in oklab, white 14%, transparent);}
+  .idea .meta .m .k{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:color-mix(in oklab, var(--coral-ink) 70%, transparent);font-family:"Geist Mono",monospace}
+  .idea .meta .m .v{font-size:14px;font-weight:600;margin-top:3px}
+  .idea .actions{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}
+  .idea .mini-btn{background:var(--coral-ink);color:var(--coral);border-color:transparent}
+  .idea .mini-btn.ghost{background:transparent;color:var(--coral-ink);border-color:color-mix(in oklab, var(--coral-ink) 40%, transparent)}
+  .idea .mini-btn:hover{background:color-mix(in oklab, var(--coral-ink) 85%, transparent)}
+
+  /* NEWS */
+  .tabs{display:inline-flex;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px}
+  .tabs button{padding:6px 14px;border-radius:999px;border:none;background:transparent;font-size:12.5px;color:var(--ink-2);cursor:pointer;font-family:inherit;letter-spacing:.01em;transition:all .2s ease}
+  .tabs button.on{background:var(--ink);color:var(--bg)}
+  .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  @media (max-width:900px){.news-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:560px){.news-grid{grid-template-columns:1fr}}
+  .news-item{padding:14px;border-radius:14px;background:var(--paper-2);border:1px solid var(--line);display:flex;flex-direction:column;gap:8px;cursor:pointer;transition:all .2s ease;text-decoration:none;color:inherit;min-height:152px}
+  .news-item:hover{transform:translateY(-2px);border-color:var(--ink)}
+  .news-item .src{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);font-family:"Geist Mono",monospace;display:flex;justify-content:space-between}
+  .news-item h4{margin:0;font-size:15px;line-height:1.3;letter-spacing:-.005em;font-weight:600}
+  .news-item .sum{font-size:12.5px;color:var(--ink-2);line-height:1.55;margin-top:auto}
+
+  /* ACTIONS */
+  .action{display:grid;grid-template-columns:24px 1fr auto;gap:12px;align-items:center;padding:12px 14px;border-radius:14px;background:var(--paper-2);border:1px solid var(--line);transition:all .2s ease}
+  .action + .action{margin-top:8px}
+  .action:hover{border-color:var(--ink)}
+  .action .checkbox{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--ink-3);cursor:pointer;display:grid;place-items:center;color:transparent;transition:all .2s ease}
+  .action.done .checkbox{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+  .action.done .at-text{text-decoration:line-through;color:var(--ink-3)}
+  .action .body{display:flex;flex-direction:column;gap:3px;min-width:0}
+  .action .at-text{font-size:14px;font-weight:500;letter-spacing:-.005em}
+  .action .src{font-family:"Geist Mono",monospace;font-size:11px;color:var(--ink-3);display:flex;align-items:center;gap:6px}
+  .action .src .src-tag{padding:2px 6px;border-radius:5px;background:var(--paper);border:1px solid var(--line)}
+
+  /* FOOTER */
+  .footer{margin-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding:18px 22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-2)}
+  .footer .gen{font-family:"Geist Mono",monospace;letter-spacing:.02em}
+  .sources{display:flex;align-items:center;gap:14px}
+  .sources .ico{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;background:var(--paper-2);border:1px solid var(--line)}
+  .sources .ico svg{width:13px;height:13px;color:var(--ink-2)}
+
+  /* helpers */
+  .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .muted{color:var(--ink-2)}
+  .small{font-size:12.5px}
+  .stats-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--paper-2)}
+  .stats-strip .s{padding:12px 14px;border-right:1px solid var(--line)}
+  .stats-strip .s:last-child{border-right:none}
+  .stats-strip .s .k{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+  .stats-strip .s .v{font-size:22px;font-weight:600;letter-spacing:-.02em;margin-top:4px}
+  .stats-strip .s .v small{font-size:12px;color:var(--ink-2);margin-left:4px;font-weight:400;font-family:"Geist Mono",monospace}
+  @media (max-width:560px){.stats-strip{grid-template-columns:repeat(2,1fr)} .stats-strip .s:nth-child(2){border-right:none} .stats-strip .s:nth-child(1),.stats-strip .s:nth-child(2){border-bottom:1px solid var(--line)}}
+
+  .body{transition: opacity .25s ease}
+
+  /* LOCK SCREEN */
+  .lock-overlay{
+    position:fixed;inset:0;z-index:9999;
+    background:var(--bg);
+    display:flex;align-items:center;justify-content:center;
+    transition:opacity .4s ease;
+  }
+  .lock-overlay.unlocked{opacity:0;pointer-events:none}
+  .lock-box{
+    text-align:center;max-width:340px;width:100%;padding:0 24px;
+  }
+  .lock-box .lock-dot{
+    width:14px;height:14px;border-radius:50%;background:var(--ink);
+    margin:0 auto 16px;position:relative;
+  }
+  .lock-box .lock-dot::after{
+    content:"";position:absolute;inset:-5px;border-radius:50%;
+    border:1px solid var(--ink);opacity:.18;animation:pulse 2.6s ease-in-out infinite;
+  }
+  .lock-box .lock-title{
+    font-size:15px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-2);margin-bottom:28px;font-weight:500;
+  }
+  .lock-box input{
+    width:100%;padding:14px 18px;border-radius:14px;
+    border:1px solid var(--line);background:var(--paper);
+    color:var(--ink);font-family:inherit;font-size:15px;
+    text-align:center;letter-spacing:.08em;
+    outline:none;transition:border-color .2s ease;
+  }
+  .lock-box input:focus{border-color:var(--ink)}
+  .lock-box input::placeholder{color:var(--ink-3);letter-spacing:.04em}
+  .lock-box .lock-err{
+    font-size:12.5px;color:var(--coral-ink);margin-top:10px;
+    opacity:0;transition:opacity .2s ease;
+  }
+  .lock-box .lock-err.show{opacity:1}
+  .lock-box .lock-hint{
+    font-size:11.5px;color:var(--ink-3);margin-top:24px;
+    font-family:"Geist Mono",monospace;letter-spacing:.02em;
+  }
+</style>
+</head>
+<body>
+  <!-- LOCK SCREEN -->
+  <div class="lock-overlay" id="lockOverlay">
+    <div class="lock-box">
+      <div class="lock-dot"></div>
+      <div class="lock-title">Morning Briefing</div>
+      <input type="password" id="lockInput" placeholder="비밀번호 입력" autocomplete="off" autofocus />
+      <div class="lock-err" id="lockErr">비밀번호가 틀렸습니다</div>
+      <div class="lock-hint">개인 대시보드 · 인증 필요</div>
+    </div>
+  </div>
+
+  <div class="wrap" id="mainContent" style="display:none">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span class="label"><b>Morning</b> · Briefing v1.04</span>
+      </div>
+      <div class="top-actions">
+        <button class="chip" id="expandAll" title="모두 펼치기">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9l8-5 8 5"/><path d="M4 15l8 5 8-5"/></svg>
+          모두 펼치기
+        </button>
+        <button class="chip" id="themeBtn" aria-label="테마 전환">
+          <svg id="themeIco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg>
+          <span id="themeLbl">Light</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- HERO: greeting + AI insight -->
+    <div class="hero">
+      <div class="hero-left">
+        <div class="date-row">
+          <span class="date">2026·04·25</span>
+          <span class="day-circle" aria-label="금요일">금</span>
+          <span class="weather" title="서울 날씨">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/>
+            </svg>
+            <span class="w-temp">13°<span class="w-range">/ 23°</span></span>
+            <span class="w-loc">서울 · 맑음</span>
+          </span>
+        </div>
+        <h1 class="greet">좋은 아침이에요,<br>
+          <em>세은</em>님 <span class="accent">☼</span>
+        </h1>
+        <div class="summary-line">
+          <span class="pill"><span class="n">1</span><span class="k">일정</span></span>
+          <span class="pill"><span class="n">10</span><span class="k">이메일</span></span>
+          <span class="pill"><span class="n">6</span><span class="k">뉴스</span></span>
+          <span class="pill"><span class="n">3</span><span class="k">추천 액션</span></span>
+          <span class="pill" style="background:var(--lime);border-color:transparent;color:var(--lime-ink)"><span class="n">종일</span><span class="k" style="color:var(--lime-ink);opacity:.7">자유시간</span></span>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="ai-mark"></div>
+        <div>
+          <div class="tag" style="background:transparent;border:none;padding:0;color:inherit;font-family:'Geist Mono',monospace;letter-spacing:.22em;font-size:10.5px;text-transform:uppercase;opacity:.85;">◌ Daily AI Insight</div>
+          <h3 style="margin-top:10px;">금요일, 오늘은 <span style="border-bottom:2px solid var(--lime);padding-bottom:2px;">노웅이 동생 결혼식</span>이 있어요. 어제 모닝 브리핑 대시보드를 기획하고 Vercel 계정도 세팅했네요.</h3>
+          <p style="margin:10px 0 0;font-size:13.5px;line-height:1.6;color:color-mix(in oklab, var(--moss-ink) 80%, transparent)">오늘의 <b style="color:var(--moss-ink);font-weight:600">Idea of the Day</b> — AI 빌드 앱 유지보수 서비스(Nightlamp). 노코드 시장과 맞닿아 있어 흥미로워요.</p>
+        </div>
+        <div class="ai-foot">
+          <span><span class="dotpulse" style="display:inline-block;vertical-align:middle;margin-right:8px"></span>SYNTH · 06:00 KST</span>
+          <span>8 sources</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BENTO GRID -->
+    <div class="grid">
+
+      <!-- SECTION 2: Yesterday Retro -->
+      <section class="card col-7" data-screen-label="02 Retro">
+        <div class="head">
+          <div class="title">
+            <span class="num">02</span>
+            <h2>Yesterday <span class="ko">어제 회고</span></h2>
+          </div>
+          <div style="display:flex;gap:6px">
+            <span class="mono small muted">2026·04·24 · Thu</span>
+            <button class="iconbtn toggle" data-toggle aria-label="접기">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="body">
+          <div style="display:grid;grid-template-columns:1.05fr .95fr;gap:18px" class="retro-grid">
+            <div>
+              <div class="mono small muted" style="margin-bottom:8px;letter-spacing:.16em;text-transform:uppercase">완료한 일</div>
+              <ul class="retro-list">
+                <li><span class="bullet done">✓</span><div>모닝 브리핑 대시보드 기획 & 디자인 핸드오프 <span class="muted">— Claude Design으로 UI 프로토타이핑</span></div></li>
+                <li><span class="bullet done">✓</span><div>GitHub Pages 배포 세팅 <span class="muted">— chappse6/morning-briefing 레포 생성</span></div></li>
+                <li><span class="bullet done">✓</span><div>Vercel 계정 설정 <span class="muted">— 2FA 활성화 + Passkey 등록</span></div></li>
+                <li><span class="bullet done">✓</span><div>IT 서비스 개발 과정 강의 시청 <span class="muted">— YouTube 학습</span></div></li>
+              </ul>
+            </div>
+            <div>
+              <div class="mono small muted" style="margin-bottom:8px;letter-spacing:.16em;text-transform:uppercase">주요 활동</div>
+              <div class="stats-strip" style="grid-template-columns:repeat(2,1fr)">
+                <div class="s"><div class="k">Projects</div><div class="v">2 <small>브리핑 + Vercel</small></div></div>
+                <div class="s"><div class="k">Design</div><div class="v">1 <small>HTML prototype</small></div></div>
+                <div class="s"><div class="k">Claude turns</div><div class="v">30+ <small>≈ 2h</small></div></div>
+                <div class="s"><div class="k">Learning</div><div class="v">1 <small>YouTube 강의</small></div></div>
+              </div>
+              <div class="mono small muted" style="margin:14px 0 8px;letter-spacing:.16em;text-transform:uppercase">Claude 대화 키워드</div>
+              <div class="tags">
+                <a class="tag" data-obsidian="모닝브리핑"><span class="h">#</span>모닝브리핑</a>
+                <a class="tag" data-obsidian="GitHub Pages"><span class="h">#</span>GitHub Pages</a>
+                <a class="tag" data-obsidian="Vercel"><span class="h">#</span>Vercel</a>
+                <a class="tag" data-obsidian="Claude Design"><span class="h">#</span>Claude Design</a>
+                <a class="tag" data-obsidian="대시보드"><span class="h">#</span>대시보드</a>
+              </div>
+            </div>
+          </div>
+          <div class="ai-note">
+            <span class="ai-ico">AI</span>
+            <div>어제 모닝 브리핑 시스템을 설계하고 첫 배포까지 진행했어요. Vercel 보안 설정도 완료 — <b>이제 자동화 파이프라인 구축</b>이 다음 스텝입니다.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: Today's Schedule -->
+      <section class="card col-5" data-screen-label="03 Schedule">
+        <div class="head">
+          <div class="title">
+            <span class="num">03</span>
+            <h2>Today <span class="ko">오늘 일정 · 1건</span></h2>
+          </div>
+          <button class="iconbtn toggle" data-toggle aria-label="접기">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </div>
+        <div class="body">
+          <div class="timeline">
+
+            <div class="tl-row event">
+              <div class="time-col">
+                <span class="t">종일</span>
+              </div>
+              <div class="body-col">
+                <div class="ev-card">
+                  <span class="accent-bar" style="background:var(--coral)"></span>
+                  <div class="ev-head">
+                    <div class="ev-title">노웅이 동생 결혼식</div>
+                    <span class="dur">event</span>
+                  </div>
+                  <div class="ev-meta">
+                    <span class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>개인 일정</span>
+                  </div>
+                  <div class="ev-actions">
+                    <a class="mini-btn solid" href="https://www.google.com/calendar/event?eid=XzZkMWtjY2hsNm9wazRiYTE2NTBrOGI5azhjcms2YjlwNjUxMzBiOW02OHMzZWhpNTcwcmowZHE2OGMgY2hhcHBzZTZAbQ&ctz=Asia/Seoul" target="_blank" rel="noopener">캘린더 →</a>
+                    <a class="mini-btn" href="things:///add?title=결혼식%20축의금%20준비&when=today" data-things>+ Things</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-row">
+              <div class="time-col">
+                <span class="t">오후</span>
+              </div>
+              <div class="body-col">
+                <div class="focus-card">
+                  <div class="fc-l">
+                    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></span>
+                    <div>
+                      <div class="fc-title">결혼식 후 자유 시간</div>
+                      <div class="fc-sub">AI 추천 · 모닝 브리핑 자동화 설계</div>
+                    </div>
+                  </div>
+                  <span class="fc-dur">여유</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- IDEA OF THE DAY -->
+      <section class="idea col-12" data-screen-label="04C Idea">
+        <div class="stripe" aria-hidden="true"></div>
+        <div class="idea-grid">
+          <div>
+            <div class="lab">◐ Idea of the Day · 04 / 25</div>
+            <h3>Always-on App Maintenance for No-Code Builders</h3>
+            <p class="desc">AI로 빌드한 앱이 출시 당일엔 잘 작동하지만, 30일 후 의존성 업데이트로 핵심 기능이 멈추고 60일 후 API 제한 변경으로 통합이 조용히 실패합니다. <b>Nightlamp</b>는 AI 빌드·노코드 앱을 24시간 모니터링하고, 사용자에게 도달하기 전에 이슈를 잡아 코드 없이 수정합니다.</p>
+            <div class="actions">
+              <a class="mini-btn ghost" href="https://www.ideabrowser.com/idea/micro-retainer-for-ongoing-vibecoded-app-maintenance" target="_blank" rel="noopener">원문 보기 →</a>
+              <a class="mini-btn" href="things:///add?title=Nightlamp%20아이디어%20검토%20-%20노코드%20앱%20유지보수&when=today&tags=morning-briefing" data-things>+ Things "아이디어 검토"</a>
+            </div>
+          </div>
+          <div>
+            <div class="lab" style="margin-bottom:8px">AI 분석</div>
+            <div class="meta">
+              <div class="m"><div class="k">시장성</div><div class="v">상 · 바이브코딩 급증</div></div>
+              <div class="m"><div class="k">기술 난이도</div><div class="v">중 · 모니터링 + 자동 패치</div></div>
+              <div class="m"><div class="k">트렌드</div><div class="v">★★★★★ 노코드/AI빌드 폭발</div></div>
+            </div>
+            <p class="desc" style="margin-top:14px;font-size:13px">AI 코드 생성 도구(Cursor, Bolt 등)가 폭발적으로 성장하면서 "만들기는 쉽지만 유지가 어려운" 앱이 급증. 의존성 관리, 보안 패치, API 호환성 모니터링을 구독형으로 제공하면 즉각 수요 확보 가능.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4-1: Important Emails -->
+      <section class="card col-7" data-screen-label="04A Important Emails">
+        <div class="head">
+          <div class="title">
+            <span class="num">04A</span>
+            <h2>Important <span class="ko">주요 이메일 · 3통</span></h2>
+          </div>
+          <div style="display:flex;gap:6px;align-items:center">
+            <span class="mono small muted">알림 · 채용</span>
+            <button class="iconbtn toggle" data-toggle aria-label="접기">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="body">
+          <div class="email-list">
+            <a class="email" href="https://mail.google.com" target="_blank" rel="noopener">
+              <div class="avatar" style="background:var(--lilac);color:var(--lilac-ink);border-color:transparent">V</div>
+              <div>
+                <div class="who"><b>Vercel</b> · notifications@vercel.com</div>
+                <div class="subj">Two Factor Authentication Successfully Enabled</div>
+                <div class="sum">2FA와 Passkey(Chrome on macOS) 설정 완료. 보안 강화됨.</div>
+              </div>
+              <div class="when">21:50</div>
+            </a>
+            <a class="email" href="https://mail.google.com" target="_blank" rel="noopener">
+              <div class="avatar" style="background:var(--lime);color:var(--lime-ink);border-color:transparent">in</div>
+              <div>
+                <div class="who"><b>LinkedIn</b> · messages-noreply@linkedin.com</div>
+                <div class="subj">Karrot · Software Engineer, Backend 채용</div>
+                <div class="sum">당근페이 백엔드 엔지니어 포지션 및 Kia Worldwide 채용 정보.</div>
+              </div>
+              <div class="when">17:20</div>
+            </a>
+            <a class="email" href="https://mail.google.com" target="_blank" rel="noopener">
+              <div class="avatar" style="background:var(--coral);color:var(--coral-ink);border-color:transparent">in</div>
+              <div>
+                <div class="who"><b>LinkedIn</b> · jobs-listings@linkedin.com</div>
+                <div class="subj">카카오페이 · Back End Developer</div>
+                <div class="sum">카카오페이 백엔드 개발자 채용. 4명의 회사 alumni가 있음.</div>
+              </div>
+              <div class="when">09:20</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4-2: Newsletters -->
+      <section class="card col-5" data-screen-label="04B Newsletters">
+        <div class="head">
+          <div class="title">
+            <span class="num">04B</span>
+            <h2>Newsletters <span class="ko">뉴스레터 · 1건</span></h2>
+          </div>
+          <button class="iconbtn toggle" data-toggle aria-label="접기">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </div>
+        <div class="body">
+          <div class="nl">
+            <div class="src"><span class="badge" style="background:var(--coral);color:var(--coral-ink)">IB</span>IdeaBrowser · Idea of the Day</div>
+            <h4>App broke. Now what? — Nightlamp 유지보수 서비스</h4>
+            <ul>
+              <li>AI 빌드 앱의 의존성·API 변경 자동 모니터링</li>
+              <li>Trend Watch: Bot flash sale — 봇 구매 대응 전략</li>
+              <li>Founder Playbook: Tally의 무료 플랜 성장 전략 ($4M ARR)</li>
+            </ul>
+            <div class="actions"><a class="mini-btn" href="https://www.ideabrowser.com/idea/micro-retainer-for-ongoing-vibecoded-app-maintenance" target="_blank" rel="noopener">원문 보기 →</a></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: News -->
+      <section class="card col-12" data-screen-label="05 News">
+        <div class="head">
+          <div class="title">
+            <span class="num">05</span>
+            <h2>News <span class="ko">테크 & 경제 브리핑</span></h2>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <div class="tabs" id="newsTabs">
+              <button class="on" data-cat="tech">테크 · 3</button>
+              <button data-cat="econ">경제 · 3</button>
+            </div>
+            <button class="iconbtn toggle" data-toggle aria-label="접기">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="body">
+          <div class="ai-note" style="margin:0 0 14px">
+            <span class="ai-ico">AI</span>
+            <div id="newsAi"><b>테크 트렌드</b> — Anthropic에 Google $40B + Amazon $25B 투자 확정. DeepSeek V4로 중국 AI 경쟁 재점화. AI 인프라에 자본 집중.</div>
+          </div>
+
+          <div class="news-grid" id="newsList">
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: Today's Actions -->
+      <section class="card col-12" data-screen-label="06 Actions" style="background:var(--moss);color:var(--moss-ink);border-color:transparent">
+        <div class="head">
+          <div class="title">
+            <span class="num" style="color:color-mix(in oklab, var(--moss-ink) 60%, transparent)">06</span>
+            <h2 style="color:var(--moss-ink)">Today's Actions <span class="ko" style="color:color-mix(in oklab, var(--moss-ink) 75%, transparent)">AI 추천 · 3건</span></h2>
+          </div>
+          <div style="display:flex;gap:8px">
+            <a class="mini-btn solid" style="background:var(--lime);color:var(--lime-ink);border-color:transparent" id="addAll" href="#">전체 Things에 추가 ↗</a>
+            <button class="iconbtn toggle" data-toggle aria-label="접기" style="border-color:color-mix(in oklab, var(--moss-ink) 25%, transparent);color:var(--moss-ink)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="body" id="actionList">
+        </div>
+      </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="gen">생성 · 2026-04-25 06:00 KST · v1.04 · 8 sources</div>
+      <div class="sources">
+        <span class="muted small">데이터</span>
+        <span class="ico" title="Calendar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
+        <span class="ico" title="Gmail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg></span>
+        <span class="ico" title="Obsidian"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 5v10l-8 5-8-5V7z"/><path d="M12 12l4-3M12 12l-4 3M12 12v6"/></svg></span>
+        <span class="ico" title="News"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h13v14H4z"/><path d="M17 8h3v9a2 2 0 0 1-2 2h-1"/><path d="M7 9h7M7 12h7M7 15h5"/></svg></span>
+        <a class="mini-btn" href="obsidian://open?vault=Separk&file=04_Daily/2026/2026-04-25" style="margin-left:6px">오늘 데일리노트 열기 ↗</a>
+      </div>
+    </div>
+
+  </div>
+
+<script>
+  // ----- LOCK SCREEN -----
+  const PASS_HASH = '36bb0f5f6e0f2286aa2617d34f5b6e5aadc3dacc856a24dd9178c1a9aac4e8af';
+  const SESSION_KEY = 'mb_auth';
+  const SESSION_TTL = 24 * 60 * 60 * 1000; // 24h
+
+  async function sha256(str) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+  }
+
+  function unlock() {
+    document.getElementById('lockOverlay').classList.add('unlocked');
+    document.getElementById('mainContent').style.display = '';
+    try { localStorage.setItem(SESSION_KEY, JSON.stringify({ t: Date.now() })); } catch(e){}
+    setTimeout(() => document.getElementById('lockOverlay').remove(), 500);
+  }
+
+  // Check saved session
+  try {
+    const s = JSON.parse(localStorage.getItem(SESSION_KEY));
+    if (s && (Date.now() - s.t) < SESSION_TTL) { unlock(); }
+  } catch(e){}
+
+  document.getElementById('lockInput').addEventListener('keydown', async (e) => {
+    if (e.key !== 'Enter') return;
+    const hash = await sha256(e.target.value);
+    if (hash === PASS_HASH) {
+      unlock();
+    } else {
+      document.getElementById('lockErr').classList.add('show');
+      e.target.value = '';
+      setTimeout(() => document.getElementById('lockErr').classList.remove('show'), 2000);
+    }
+  });
+
+  // ----- THEME -----
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('themeBtn');
+  const themeLbl = document.getElementById('themeLbl');
+  const setTheme = (t) => {
+    root.setAttribute('data-theme', t);
+    themeLbl.textContent = t === 'dark' ? 'Dark' : 'Light';
+    try { localStorage.setItem('mb_theme', t); } catch(e){}
+  };
+  try {
+    const saved = localStorage.getItem('mb_theme');
+    if (saved) setTheme(saved);
+    else if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
+  } catch(e){}
+  themeBtn.addEventListener('click', () => {
+    setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  // ----- COLLAPSE -----
+  document.querySelectorAll('[data-toggle]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      btn.closest('.card, section').classList.toggle('collapsed');
+    });
+  });
+  document.getElementById('expandAll').addEventListener('click', () => {
+    const anyCollapsed = document.querySelectorAll('.collapsed').length > 0;
+    document.querySelectorAll('.card, section.card').forEach(c => {
+      c.classList.toggle('collapsed', !anyCollapsed);
+    });
+  });
+
+  // ----- TAGS -> Obsidian -----
+  document.querySelectorAll('[data-obsidian]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      const q = encodeURIComponent(el.dataset.obsidian);
+      window.location.href = `obsidian://search?vault=Separk&query=${q}`;
+    });
+  });
+
+  // ----- NEWS DATA -----
+  const news = {
+    tech: [
+      { src:'Bloomberg', time:'04·24', title:'DeepSeek V4 Flash / Pro 공개', sum:'코딩 벤치마크 최상위 성능, Hybrid Attention Architecture 도입. 100만 토큰 컨텍스트 윈도우 지원.', url:'https://www.bloomberg.com/news/articles/2026-04-24/deepseek-unveils-newest-flagship-a-year-after-ai-breakthrough' },
+      { src:'The Star', time:'04·25', title:'Google, Anthropic에 $40B 투자 — 밸류 $350B', sum:'Google이 Anthropic에 $10B 즉시 투자, 성과 목표 달성 시 추가 $30B. 역대 최대 AI 스타트업 투자.', url:'https://www.thestar.com.my/tech/tech-news/2026/04/25/google-plans-to-invest-up-to-40-billion-in-anthropic-bloomberg-news-reports' },
+      { src:'CNBC', time:'04·20', title:'Amazon, Anthropic에 $25B 추가 투자', sum:'Amazon이 AI 인프라 딜의 일환으로 Anthropic에 최대 $25B 추가 투자. Google 투자 직전 발표.', url:'https://www.cnbc.com/2026/04/20/amazon-invest-up-to-25-billion-in-anthropic-part-of-ai-infrastructure.html' },
+    ],
+    econ: [
+      { src:'Reuters', time:'04·20', title:'한국 1분기 GDP 1.7% 성장 — 코로나 이후 최고', sum:'반도체 수출 급증이 중동 리스크를 상쇄. 시장 예상치를 크게 상회하는 서프라이즈.', url:'https://wkzo.com/2026/04/20/south-korea-economy-likely-returned-to-growth-in-q1-reuters-poll/' },
+      { src:'KED Global', time:'04·25', title:'4월 1~20일 수출 49.4% 급증', sum:'반도체 주도 수출 호조. 20일간 수출액 $504억 돌파. 무역수지 흑자 지속.', url:'https://www.kedglobal.com/' },
+      { src:'서울경제', time:'04·25', title:'신현송 한은 총재 취임 — "신중한 통화정책"', sum:'중동 위기 속 불확실성 감안해 신중하고 조심스러운 통화정책 기조 예고.', url:'https://en.sedaily.com/' },
+    ]
+  };
+  const aiByCat = {
+    tech: 'Anthropic에 Google $40B + Amazon $25B 투자 확정. DeepSeek V4로 중국 AI 경쟁 재점화. AI 인프라에 자본 집중.',
+    econ: '1분기 GDP 1.7% 서프라이즈 + 4월 수출 49.4% 급증. 반도체가 한국 경제 성장 견인. 신현송 한은 총재 취임으로 통화정책 변화 관심.'
+  };
+  const newsList = document.getElementById('newsList');
+  const newsAi = document.getElementById('newsAi');
+  const renderNews = (cat) => {
+    newsList.innerHTML = news[cat].map(n => `
+      <a class="news-item" href="${n.url}" target="_blank" rel="noopener">
+        <div class="src"><span>${n.src}</span><span>${n.time}</span></div>
+        <h4>${n.title}</h4>
+        <div class="sum">${n.sum}</div>
+      </a>
+    `).join('');
+    newsAi.innerHTML = `<b>${cat==='tech'?'테크':'경제'} 트렌드</b> — ${aiByCat[cat]}`;
+  };
+  renderNews('tech');
+  document.querySelectorAll('#newsTabs button').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('#newsTabs button').forEach(x => x.classList.remove('on'));
+      b.classList.add('on');
+      renderNews(b.dataset.cat);
+    });
+  });
+
+  // ----- ACTIONS -----
+  const actions = [
+    { t:'모닝 브리핑 자동화 파이프라인 설계', src:'어제 회고 · 대시보드 기획', srcType:'retro' },
+    { t:'Nightlamp 아이디어 분석 노트 작성', src:'Idea of the Day · IdeaBrowser', srcType:'idea' },
+    { t:'Karrot / 카카오페이 채용 공고 검토', src:'LinkedIn · 채용 이메일', srcType:'email' },
+  ];
+  const actionList = document.getElementById('actionList');
+  actionList.innerHTML = actions.map((a,i) => `
+    <div class="action" data-i="${i}" style="background:color-mix(in oklab, white 8%, transparent);border-color:color-mix(in oklab, white 14%, transparent)">
+      <div class="checkbox" style="border-color:color-mix(in oklab, var(--moss-ink) 45%, transparent)">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg>
+      </div>
+      <div class="body">
+        <div class="at-text">${a.t}</div>
+        <div class="src" style="color:color-mix(in oklab, var(--moss-ink) 70%, transparent)">
+          <span style="opacity:.7">↳ from</span>
+          <span class="src-tag" style="background:transparent;border-color:color-mix(in oklab, var(--moss-ink) 30%, transparent);color:var(--moss-ink)">${a.src}</span>
+        </div>
+      </div>
+      <a class="mini-btn" data-things href="things:///add?title=${encodeURIComponent(a.t)}&when=today&tags=morning-briefing" style="background:var(--moss-ink);color:var(--moss);border-color:transparent">+ Things</a>
+    </div>
+  `).join('');
+
+  actionList.querySelectorAll('.checkbox').forEach(cb => {
+    cb.addEventListener('click', (e) => {
+      e.stopPropagation();
+      cb.closest('.action').classList.toggle('done');
+    });
+  });
+
+  document.getElementById('addAll').addEventListener('click', (e) => {
+    e.preventDefault();
+    const titles = actions.map(a => a.t).join('\n');
+    const url = `things:///add?titles=${encodeURIComponent(titles)}&when=today&tags=morning-briefing`;
+    window.location.href = url;
+  });
+</script>
+</body>
+</html>
