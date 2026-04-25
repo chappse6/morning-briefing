@@ -1,0 +1,839 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>모닝 브리핑 · 2026.04.25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: oklch(0.985 0.005 90);
+    --ink: oklch(0.18 0.01 80);
+    --ink-2: oklch(0.42 0.01 80);
+    --ink-3: oklch(0.62 0.01 80);
+    --line: oklch(0.92 0.005 80);
+    --paper: #ffffff;
+    --paper-2: oklch(0.965 0.008 85);
+    --moss: oklch(0.28 0.04 145);
+    --moss-ink: oklch(0.95 0.03 125);
+    --lime: oklch(0.88 0.18 125);
+    --lime-ink: oklch(0.30 0.10 140);
+    --lilac: oklch(0.82 0.06 290);
+    --lilac-ink: oklch(0.30 0.06 290);
+    --coral: oklch(0.82 0.10 40);
+    --coral-ink: oklch(0.40 0.12 35);
+    --shadow: 0 1px 0 rgba(0,0,0,.02), 0 12px 32px -16px rgba(20,20,20,.10);
+    --radius: 22px;
+    --radius-sm: 14px;
+    --gap: 16px;
+  }
+  html[data-theme="dark"]{
+    --bg: oklch(0.16 0.005 90);
+    --ink: oklch(0.96 0.01 90);
+    --ink-2: oklch(0.78 0.01 80);
+    --ink-3: oklch(0.58 0.01 80);
+    --line: oklch(0.26 0.005 80);
+    --paper: oklch(0.22 0.006 85);
+    --paper-2: oklch(0.20 0.006 85);
+    --moss: oklch(0.32 0.06 140);
+    --moss-ink: oklch(0.95 0.05 125);
+    --lime: oklch(0.88 0.20 125);
+    --lime-ink: oklch(0.20 0.08 140);
+    --lilac: oklch(0.70 0.09 290);
+    --lilac-ink: oklch(0.18 0.04 290);
+    --coral: oklch(0.78 0.13 38);
+    --coral-ink: oklch(0.22 0.07 35);
+    --shadow: 0 1px 0 rgba(255,255,255,.02), 0 16px 40px -20px rgba(0,0,0,.6);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-feature-settings:"ss03","cv11";
+    letter-spacing:-0.005em;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    transition: background .35s ease, color .35s ease;
+  }
+  .mono{font-family:"Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace; font-feature-settings:"tnum","ss01"; letter-spacing:0;}
+
+  .wrap{max-width:1320px;margin:0 auto;padding:28px 24px 80px;}
+  @media (max-width:1024px){.wrap{padding:24px 20px 72px}}
+  @media (max-width:560px){.wrap{padding:18px 14px 60px}}
+
+  /* HEADER ---------------------------------------------------------- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--ink);position:relative;}
+  .brand .dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--ink);opacity:.18;animation:pulse 2.6s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:.18}50%{transform:scale(1.6);opacity:0}}
+  .brand .label{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2)}
+  .brand .label b{color:var(--ink);font-weight:600}
+
+  .top-actions{display:flex;align-items:center;gap:8px;}
+  .chip{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-size:12.5px;cursor:pointer;transition:transform .15s ease, background .25s ease;}
+  .chip:hover{transform:translateY(-1px);background:var(--paper-2)}
+  .chip svg{width:14px;height:14px}
+
+  .hero{display:grid;grid-template-columns: 1.4fr .6fr;gap:var(--gap);margin-bottom:var(--gap);}
+  @media (max-width:900px){.hero{grid-template-columns:1fr}}
+
+  .hero-left{
+    background:var(--paper);border-radius:var(--radius);padding:28px 28px 26px;border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    display:flex;flex-direction:column;gap:18px;justify-content:space-between;
+    min-height:240px;
+  }
+  .date-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .date-row .date{font-family:"Geist Mono",monospace;font-size:13px;color:var(--ink-3);letter-spacing:.04em}
+  .date-row .day-circle{
+    width:26px;height:26px;border-radius:50%;
+    border:1.2px solid var(--ink);
+    display:inline-grid;place-items:center;
+    font-size:12px;font-weight:600;color:var(--ink);
+    letter-spacing:0;
+  }
+  .date-row .weather{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:5px 11px 5px 9px;border-radius:999px;
+    background:var(--paper-2);border:1px solid var(--line);
+    font-size:12.5px;color:var(--ink);
+    margin-left:auto;
+  }
+  .date-row .weather svg{width:14px;height:14px;color:var(--coral-ink)}
+  html[data-theme="dark"] .date-row .weather svg{color:var(--lime)}
+  .date-row .weather .w-temp{font-family:"Geist Mono",monospace;font-weight:600;letter-spacing:.01em;}
+  .date-row .weather .w-temp .w-range{color:var(--ink-3);font-weight:400;margin-left:3px;}
+  .date-row .weather .w-loc{color:var(--ink-2);font-size:11.5px;padding-left:8px;border-left:1px solid var(--line);}
+  .greet{font-size:clamp(36px, 4.8vw, 56px);line-height:1.02;letter-spacing:-0.028em;font-weight:600;margin:0;}
+  .greet em{font-style:normal;font-weight:600;color:var(--ink);position:relative;}
+  .greet em::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.32em;background:var(--lime);z-index:-1;border-radius:2px;}
+  .summary-line{display:flex;flex-wrap:wrap;gap:18px 22px;color:var(--ink-2);font-size:14px;align-items:center;}
+  .summary-line .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line)}
+  .summary-line .pill .n{font-family:"Geist Mono",monospace;font-weight:600;color:var(--ink)}
+  .summary-line .pill .k{color:var(--ink-3);font-size:12.5px}
+
+  .hero-right{
+    background:var(--moss);color:var(--moss-ink);
+    border-radius:var(--radius);padding:24px;border:1px solid transparent;
+    display:flex;flex-direction:column;justify-content:space-between;gap:14px;min-height:240px;position:relative;overflow:hidden;
+  }
+  .hero-right .tag{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:color-mix(in oklab, var(--moss-ink) 75%, transparent);}
+  .hero-right h3{margin:0;font-size:22px;line-height:1.25;letter-spacing:-.01em;font-weight:500}
+  .hero-right .ai-mark{
+    position:absolute; right:-30px; top:-30px; width:160px;height:160px;border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, var(--lime), transparent 60%);
+    filter:blur(2px);opacity:.55;
+  }
+  .ai-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:"Geist Mono",monospace;font-size:11.5px;color:color-mix(in oklab, var(--moss-ink) 70%, transparent);}
+  .ai-foot .dotpulse{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 var(--lime);animation:pulse2 1.8s ease-out infinite}
+  @keyframes pulse2{0%{box-shadow:0 0 0 0 color-mix(in oklab, var(--lime) 60%, transparent)}80%,100%{box-shadow:0 0 0 14px transparent}}
+
+  /* BENTO ---------------------------------------------------------- */
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);}
+  .card{background:var(--paper);border-radius:var(--radius);border:1px solid var(--line);padding:22px;box-shadow:var(--shadow);position:relative;overflow:hidden;}
+  .card.flat{box-shadow:none}
+  .card .head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;}
+  .card .head .title{display:flex;align-items:center;gap:10px;}
+  .card .head .title .num{font-family:"Geist Mono",monospace;font-size:11px;color:var(--ink-3);letter-spacing:.08em}
+  .card .head .title h2{margin:0;font-size:14px;letter-spacing:.02em;font-weight:600;color:var(--ink)}
+  .card .head .title h2 .ko{color:var(--ink-2);font-weight:500;margin-left:6px;font-size:12.5px}
+  .iconbtn{width:28px;height:28px;display:grid;place-items:center;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--ink-2);cursor:pointer;transition:all .2s ease}
+  .iconbtn:hover{background:var(--paper-2);color:var(--ink)}
+  .iconbtn svg{width:14px;height:14px;transition:transform .25s ease}
+  .card.collapsed .body{display:none}
+  .card.collapsed .iconbtn.toggle svg{transform:rotate(-90deg)}
+
+  .col-12{grid-column: span 12}
+  .col-8{grid-column: span 8}
+  .col-7{grid-column: span 7}
+  .col-6{grid-column: span 6}
+  .col-5{grid-column: span 5}
+  .col-4{grid-column: span 4}
+  .col-3{grid-column: span 3}
+  @media (max-width:1024px){
+    .col-8,.col-7,.col-6,.col-5,.col-4,.col-3{grid-column: span 12}
+    .col-md-6{grid-column: span 6}
+    .col-md-12{grid-column: span 12}
+  }
+
+  /* RETRO --------- */
+  .retro-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+  .retro-list li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--ink);line-height:1.5}
+  .retro-list li .bullet{width:18px;height:18px;flex:none;border-radius:6px;background:var(--paper-2);border:1px solid var(--line);display:grid;place-items:center;color:var(--ink-2);font-family:"Geist Mono",monospace;font-size:10px;margin-top:2px;}
+  .retro-list li .bullet.done{background:var(--lime);border-color:transparent;color:var(--lime-ink)}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .tag{display:inline-flex;align-items:center;padding:5px 10px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line);font-size:12px;color:var(--ink);cursor:pointer;font-family:"Geist Mono",monospace;letter-spacing:.01em;transition:all .2s ease;text-decoration:none}
+  .tag:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .tag .h{color:var(--ink-3);margin-right:2px}
+  .tag:hover .h{color:color-mix(in oklab, var(--bg) 70%, transparent)}
+
+  .ai-note{margin-top:16px;padding:12px 14px;border-radius:14px;background:color-mix(in oklab, var(--lime) 20%, var(--paper));border:1px dashed color-mix(in oklab, var(--lime) 50%, var(--ink-3));font-size:13px;color:var(--ink);line-height:1.55;display:flex;gap:10px;align-items:flex-start}
+  .ai-note .ai-ico{width:18px;height:18px;flex:none;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-family:"Geist Mono",monospace;font-size:10px;font-weight:600}
+  html[data-theme="dark"] .ai-note{background:color-mix(in oklab, var(--lime) 14%, var(--paper))}
+
+  /* SCHEDULE TIMELINE --------- */
+  .timeline{display:grid;grid-template-columns:64px 1fr;gap:0;position:relative;}
+  .timeline::before{content:"";position:absolute;left:63px;top:6px;bottom:6px;width:1px;background:var(--line);}
+  .tl-row{display:contents;}
+  .tl-row .time-col{padding:14px 14px 0 0;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+  .tl-row .time-col .t{font-family:"Geist Mono",monospace;font-size:12px;color:var(--ink);letter-spacing:.01em;line-height:1;font-weight:500;}
+  .tl-row .time-col .t-end{font-family:"Geist Mono",monospace;font-size:10.5px;color:var(--ink-3);line-height:1;}
+  .tl-row .body-col{position:relative;padding:8px 0 8px 18px;}
+  .tl-row .body-col::before{content:"";position:absolute;left:-4.5px;top:18px;width:9px;height:9px;border-radius:50%;background:var(--paper);border:2px solid var(--ink-3);z-index:1;}
+  .tl-row.event .body-col::before{background:var(--ink);border-color:var(--ink);}
+  .tl-row.now .body-col::before{background:var(--lime);border-color:var(--lime);box-shadow:0 0 0 4px color-mix(in oklab, var(--lime) 30%, transparent);}
+  .ev-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 16px 12px;position:relative;overflow:hidden;transition:all .2s ease;}
+  .ev-card:hover{border-color:var(--ink);transform:translateY(-1px);}
+  .ev-card .accent-bar{position:absolute;left:0;top:12px;bottom:12px;width:3px;border-radius:0 2px 2px 0;background:var(--ink);}
+  .ev-card.now .accent-bar{background:var(--lime);}
+  .ev-card .ev-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:6px;}
+  .ev-card .ev-title{font-size:15px;font-weight:600;letter-spacing:-.01em;line-height:1.3;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .ev-card .badge-now{font-family:"Geist Mono",monospace;font-size:9.5px;letter-spacing:.1em;padding:3px 7px;border-radius:5px;background:var(--lime);color:var(--lime-ink);text-transform:uppercase;font-weight:600;}
+  .ev-card .dur{font-family:"Geist Mono",monospace;font-size:11px;color:var(--ink-3);white-space:nowrap;padding-top:3px;}
+  .ev-card .ev-meta{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink-2);align-items:center;margin-top:4px;}
+  .ev-card .ev-meta .m{display:inline-flex;align-items:center;gap:5px;}
+  .ev-card .ev-meta svg{width:12px;height:12px;color:var(--ink-3);}
+  .ev-card .avatars{display:inline-flex;}
+  .ev-card .avatars span{width:20px;height:20px;border-radius:50%;background:var(--paper-2);border:1.5px solid var(--paper);font-size:9px;font-weight:600;display:grid;place-items:center;color:var(--ink-2);margin-left:-5px;font-family:"Geist Mono",monospace;}
+  .ev-card .avatars span:first-child{margin-left:0;}
+  .ev-card .ev-actions{display:flex;gap:6px;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);}
+  .focus-card{padding:10px 14px;border-radius:12px;border:1px dashed color-mix(in oklab, var(--lime) 60%, var(--ink-3));background:color-mix(in oklab, var(--lime) 10%, var(--paper));color:var(--ink-2);display:flex;justify-content:space-between;align-items:center;gap:10px;}
+  html[data-theme="dark"] .focus-card{background:color-mix(in oklab, var(--lime) 8%, var(--paper));}
+  .focus-card .fc-l{display:flex;align-items:center;gap:10px;}
+  .focus-card .fc-l .ic{width:24px;height:24px;border-radius:7px;background:var(--lime);color:var(--lime-ink);display:grid;place-items:center;flex:none;}
+  .focus-card .fc-l .ic svg{width:13px;height:13px;}
+  .focus-card .fc-title{font-size:13px;font-weight:600;color:var(--ink);letter-spacing:-.005em;}
+  .focus-card .fc-sub{font-size:11.5px;color:var(--ink-2);font-family:"Geist Mono",monospace;margin-top:2px;}
+  .focus-card .fc-dur{font-family:"Geist Mono",monospace;font-size:11px;color:var(--ink-2);background:var(--paper);border:1px solid var(--line);padding:3px 8px;border-radius:999px;flex:none;}
+  .mini-btn{font-family:"Geist Mono",monospace;font-size:11px;padding:5px 9px;border-radius:7px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all .2s ease}
+  .mini-btn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .mini-btn.solid{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .mini-btn.solid:hover{background:transparent;color:var(--ink)}
+
+  /* EMAIL --------- */
+  .email-list{display:flex;flex-direction:column;gap:8px}
+  .email{display:grid;grid-template-columns:36px 1fr auto;gap:12px;padding:12px 12px;border-radius:12px;align-items:center;cursor:pointer;border:1px solid transparent;transition:all .2s ease;text-decoration:none;color:inherit}
+  .email:hover{background:var(--paper-2);border-color:var(--line)}
+  .avatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:600;font-size:13px;color:var(--ink);background:var(--paper-2);border:1px solid var(--line);font-family:"Geist Mono",monospace;}
+  .email .who{font-size:12px;color:var(--ink-2);margin-bottom:2px;display:flex;gap:8px;align-items:center}
+  .email .who b{color:var(--ink);font-weight:600}
+  .email .subj{font-size:14px;font-weight:600;letter-spacing:-.005em;line-height:1.35;margin-bottom:3px}
+  .email .sum{font-size:12.5px;color:var(--ink-2);line-height:1.5}
+  .email .when{font-family:"Geist Mono",monospace;font-size:11px;color:var(--ink-3);align-self:flex-start;padding-top:2px;white-space:nowrap}
+
+  .nl{padding:14px;border-radius:14px;background:var(--paper-2);border:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+  .nl + .nl{margin-top:10px}
+  .nl .src{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);font-family:"Geist Mono",monospace;display:flex;align-items:center;gap:8px}
+  .nl .src .badge{padding:2px 7px;border-radius:5px;background:var(--ink);color:var(--bg);font-size:10px;letter-spacing:.06em}
+  .nl h4{margin:0;font-size:15px;font-weight:600;letter-spacing:-.005em;line-height:1.3}
+  .nl ul{margin:2px 0 0;padding-left:16px;font-size:13px;color:var(--ink-2);line-height:1.6}
+  .nl ul li{margin:0}
+  .nl .actions{display:flex;gap:6px;margin-top:4px}
+
+  /* IDEA OF THE DAY --- */
+  .idea{
+    grid-column: span 12;
+    background: linear-gradient(135deg, var(--coral) 0%, color-mix(in oklab, var(--coral) 70%, var(--lilac)) 100%);
+    color: var(--coral-ink);
+    border-radius: var(--radius); padding: 26px; border:1px solid transparent; position:relative; overflow:hidden;
+  }
+  .idea .stripe{position:absolute;inset:auto -40px -40px auto;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle at 30% 30%, color-mix(in oklab, var(--lime) 70%, transparent), transparent 65%);opacity:.7}
+  .idea-grid{display:grid;grid-template-columns: 1.2fr 1fr; gap:20px; position:relative; z-index:1}
+  @media (max-width:900px){.idea-grid{grid-template-columns:1fr}}
+  .idea .lab{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-family:"Geist Mono",monospace;color:color-mix(in oklab, var(--coral-ink) 80%, transparent)}
+  .idea h3{margin:6px 0 10px;font-size:30px;line-height:1.05;letter-spacing:-.02em;font-weight:600;}
+  .idea h3 .serif{font-weight:400;}
+  .idea .desc{font-size:14px;line-height:1.6;color:color-mix(in oklab, var(--coral-ink) 88%, transparent)}
+  .idea .meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+  .idea .meta .m{padding:10px 12px;background:color-mix(in oklab, white 40%, transparent);border-radius:12px;border:1px solid color-mix(in oklab, var(--coral-ink) 18%, transparent);}
+  html[data-theme="dark"] .idea .meta .m{background:color-mix(in oklab, black 25%, transparent);border-color:color-mix(in oklab, white 14%, transparent);}
+  .idea .meta .m .k{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:color-mix(in oklab, var(--coral-ink) 70%, transparent);font-family:"Geist Mono",monospace}
+  .idea .meta .m .v{font-size:14px;font-weight:600;margin-top:3px}
+  .idea .actions{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}
+  .idea .mini-btn{background:var(--coral-ink);color:var(--coral);border-color:transparent}
+  .idea .mini-btn.ghost{background:transparent;color:var(--coral-ink);border-color:color-mix(in oklab, var(--coral-ink) 40%, transparent)}
+  .idea .mini-btn:hover{background:color-mix(in oklab, var(--coral-ink) 85%, transparent)}
+
+  /* NEWS ----------- */
+  .tabs{display:inline-flex;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px}
+  .tabs button{padding:6px 14px;border-radius:999px;border:none;background:transparent;font-size:12.5px;color:var(--ink-2);cursor:pointer;font-family:inherit;letter-spacing:.01em;transition:all .2s ease}
+  .tabs button.on{background:var(--ink);color:var(--bg)}
+  .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  @media (max-width:900px){.news-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:560px){.news-grid{grid-template-columns:1fr}}
+  .news-item{padding:14px;border-radius:14px;background:var(--paper-2);border:1px solid var(--line);display:flex;flex-direction:column;gap:8px;cursor:pointer;transition:all .2s ease;text-decoration:none;color:inherit;min-height:152px}
+  .news-item:hover{transform:translateY(-2px);border-color:var(--ink)}
+  .news-item .src{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);font-family:"Geist Mono",monospace;display:flex;justify-content:space-between}
+  .news-item h4{margin:0;font-size:15px;line-height:1.3;letter-spacing:-.005em;font-weight:600}
+  .news-item .sum{font-size:12.5px;color:var(--ink-2);line-height:1.55;margin-top:auto}
+
+  /* ACTIONS -------- */
+  .action{display:grid;grid-template-columns:24px 1fr auto;gap:12px;align-items:center;padding:12px 14px;border-radius:14px;background:var(--paper-2);border:1px solid var(--line);transition:all .2s ease}
+  .action + .action{margin-top:8px}
+  .action:hover{border-color:var(--ink)}
+  .action .checkbox{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--ink-3);cursor:pointer;display:grid;place-items:center;color:transparent;transition:all .2s ease}
+  .action.done .checkbox{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+  .action.done .at-text{text-decoration:line-through;color:var(--ink-3)}
+  .action .body{display:flex;flex-direction:column;gap:3px;min-width:0}
+  .action .at-text{font-size:14px;font-weight:500;letter-spacing:-.005em}
+  .action .src{font-family:"Geist Mono",monospace;font-size:11px;color:var(--ink-3);display:flex;align-items:center;gap:6px}
+  .action .src .src-tag{padding:2px 6px;border-radius:5px;background:var(--paper);border:1px solid var(--line)}
+
+  /* FOOTER --------- */
+  .footer{margin-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding:18px 22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-2)}
+  .footer .gen{font-family:"Geist Mono",monospace;letter-spacing:.02em}
+  .sources{display:flex;align-items:center;gap:14px}
+  .sources .ico{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;background:var(--paper-2);border:1px solid var(--line)}
+  .sources .ico svg{width:13px;height:13px;color:var(--ink-2)}
+
+  /* small helpers */
+  .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .muted{color:var(--ink-2)}
+  .small{font-size:12.5px}
+  .stats-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--paper-2)}
+  .stats-strip .s{padding:12px 14px;border-right:1px solid var(--line)}
+  .stats-strip .s:last-child{border-right:none}
+  .stats-strip .s .k{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+  .stats-strip .s .v{font-size:22px;font-weight:600;letter-spacing:-.02em;margin-top:4px}
+  .stats-strip .s .v small{font-size:12px;color:var(--ink-2);margin-left:4px;font-weight:400;font-family:"Geist Mono",monospace}
+  @media (max-width:560px){.stats-strip{grid-template-columns:repeat(2,1fr)} .stats-strip .s:nth-child(2){border-right:none} .stats-strip .s:nth-child(1),.stats-strip .s:nth-child(2){border-bottom:1px solid var(--line)}}
+
+  /* expand transition */
+  .body{transition: opacity .25s ease}
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span class="label"><b>Morning</b> · Briefing v1.04</span>
+      </div>
+      <div class="top-actions">
+        <button class="chip" id="expandAll" title="모두 펼치기">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9l8-5 8 5"/><path d="M4 15l8 5 8-5"/></svg>
+          모두 펼치기
+        </button>
+        <button class="chip" id="themeBtn" aria-label="테마 전환">
+          <svg id="themeIco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg>
+          <span id="themeLbl">Light</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- HERO: greeting + AI insight -->
+    <div class="hero">
+      <div class="hero-left">
+        <div class="date-row">
+          <span class="date">2026·04·25</span>
+          <span class="day-circle" aria-label="금요일">금</span>
+          <span class="weather" title="서울 날씨">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/>
+            </svg>
+            <span class="w-temp">14°<span class="w-range">/ 22°</span></span>
+            <span class="w-loc">서울 · 맑음</span>
+          </span>
+        </div>
+        <h1 class="greet">좋은 아침이에요,<br>
+          <em>세은</em>님 <span class="accent">☼</span>
+        </h1>
+        <div class="summary-line">
+          <span class="pill"><span class="n">3</span><span class="k">일정</span></span>
+          <span class="pill"><span class="n">5</span><span class="k">이메일</span></span>
+          <span class="pill"><span class="n">6</span><span class="k">뉴스</span></span>
+          <span class="pill"><span class="n">4</span><span class="k">추천 액션</span></span>
+          <span class="pill" style="background:var(--lime);border-color:transparent;color:var(--lime-ink)"><span class="n">3h</span><span class="k" style="color:var(--lime-ink);opacity:.7">집중 가능</span></span>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="ai-mark"></div>
+        <div>
+          <div class="tag" style="background:transparent;border:none;padding:0;color:inherit;font-family:'Geist Mono',monospace;letter-spacing:.22em;font-size:10.5px;text-transform:uppercase;opacity:.85;">◌ Daily AI Insight</div>
+          <h3 style="margin-top:10px;">어제 인증 구현에 깊게 들어가셨네요. 오후 <span style="border-bottom:2px solid var(--lime);padding-bottom:2px;">3시간 빈 시간</span>에 테스트 커버리지를 메우면 다음 PR이 가벼워질 겁니다.</h3>
+          <p style="margin:10px 0 0;font-size:13.5px;line-height:1.6;color:color-mix(in oklab, var(--moss-ink) 80%, transparent)">오늘의 <b style="color:var(--moss-ink);font-weight:600">Idea of the Day</b>인 AI 튜터링 — StudOX의 학습 패턴 데이터와 결이 맞아요.</p>
+        </div>
+        <div class="ai-foot">
+          <span><span class="dotpulse" style="display:inline-block;vertical-align:middle;margin-right:8px"></span>SYNTH · 06:00 KST</span>
+          <span>14 sources</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BENTO GRID -->
+    <div class="grid">
+
+      <!-- SECTION 2: Yesterday Retro -->
+      <section class="card col-7" data-screen-label="02 Retro">
+        <div class="head">
+          <div class="title">
+            <span class="num">02</span>
+            <h2>Yesterday <span class="ko">어제 회고</span></h2>
+          </div>
+          <div style="display:flex;gap:6px">
+            <span class="mono small muted">2026·04·24 · Thu</span>
+            <button class="iconbtn toggle" data-toggle aria-label="접기">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="body">
+          <div style="display:grid;grid-template-columns:1.05fr .95fr;gap:18px" class="retro-grid">
+            <div>
+              <div class="mono small muted" style="margin-bottom:8px;letter-spacing:.16em;text-transform:uppercase">완료한 일</div>
+              <ul class="retro-list">
+                <li><span class="bullet done">✓</span><div>인증 모듈 구현 완료 <span class="muted">— OAuth 2.0 + JWT, 리프레시 토큰 회전 포함</span></div></li>
+                <li><span class="bullet done">✓</span><div>StudOX 퀴즈 생성 로직 리팩토링 <span class="muted">— 함수 분리, 시드 결정성 확보</span></div></li>
+                <li><span class="bullet done">✓</span><div>Cowork: <em>Claude-Plan-Orchestrator</em> PR 리뷰 <span class="muted">— 코멘트 7건</span></div></li>
+              </ul>
+            </div>
+            <div>
+              <div class="mono small muted" style="margin-bottom:8px;letter-spacing:.16em;text-transform:uppercase">Cowork 요약</div>
+              <div class="stats-strip" style="grid-template-columns:repeat(2,1fr)">
+                <div class="s"><div class="k">Commits</div><div class="v">12 <small>+482 / −137</small></div></div>
+                <div class="s"><div class="k">PR Reviews</div><div class="v">3 <small>1 merged</small></div></div>
+                <div class="s"><div class="k">Claude turns</div><div class="v">47 <small>≈ 3h 12m</small></div></div>
+                <div class="s"><div class="k">Focus blocks</div><div class="v">5 <small>longest 1h 48m</small></div></div>
+              </div>
+              <div class="mono small muted" style="margin:14px 0 8px;letter-spacing:.16em;text-transform:uppercase">Claude 대화 키워드</div>
+              <div class="tags">
+                <a class="tag" data-obsidian="OAuth"><span class="h">#</span>OAuth</a>
+                <a class="tag" data-obsidian="JWT"><span class="h">#</span>JWT</a>
+                <a class="tag" data-obsidian="StudOX"><span class="h">#</span>StudOX</a>
+                <a class="tag" data-obsidian="리팩토링"><span class="h">#</span>리팩토링</a>
+                <a class="tag" data-obsidian="PR리뷰"><span class="h">#</span>PR리뷰</a>
+              </div>
+            </div>
+          </div>
+          <div class="ai-note">
+            <span class="ai-ico">AI</span>
+            <div>인증 흐름은 빈틈없이 마무리됐지만 <b>테스트가 비어 있어요</b>. 오늘 14–17시 사이 빈 슬롯에 단위·통합 테스트를 묶어 처리하면 회복 비용이 적습니다.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: Today's Schedule -->
+      <section class="card col-5" data-screen-label="03 Schedule">
+        <div class="head">
+          <div class="title">
+            <span class="num">03</span>
+            <h2>Today <span class="ko">오늘 일정 · 3건</span></h2>
+          </div>
+          <button class="iconbtn toggle" data-toggle aria-label="접기">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </div>
+        <div class="body">
+          <div class="timeline">
+
+            <div class="tl-row event now">
+              <div class="time-col">
+                <span class="t">09:00</span>
+                <span class="t-end">10:00</span>
+              </div>
+              <div class="body-col">
+                <div class="ev-card now">
+                  <span class="accent-bar"></span>
+                  <div class="ev-head">
+                    <div class="ev-title">팀 스탠드업 미팅 <span class="badge-now">● NOW</span></div>
+                    <span class="dur">1h</span>
+                  </div>
+                  <div class="ev-meta">
+                    <span class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="14" height="12" rx="2"/><path d="M17 10l4-2v8l-4-2"/></svg>Google Meet</span>
+                    <span class="m">
+                      <span class="avatars">
+                        <span style="background:var(--lilac);color:var(--lilac-ink)">SE</span>
+                        <span style="background:var(--coral);color:var(--coral-ink)">JK</span>
+                        <span style="background:var(--lime);color:var(--lime-ink)">MH</span>
+                        <span>+1</span>
+                      </span>
+                    </span>
+                  </div>
+                  <div class="ev-actions">
+                    <a class="mini-btn solid" href="https://calendar.google.com/calendar/r/eventedit?text=Team+Standup" target="_blank" rel="noopener">캘린더 →</a>
+                    <a class="mini-btn" href="things:///add?title=스탠드업%20공유사항%20정리&when=today" data-things>+ Things</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-row">
+              <div class="time-col">
+                <span class="t">10:00</span>
+                <span class="t-end">14:00</span>
+              </div>
+              <div class="body-col">
+                <div class="focus-card">
+                  <div class="fc-l">
+                    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></span>
+                    <div>
+                      <div class="fc-title">집중 작업 가능</div>
+                      <div class="fc-sub">AI 추천 · 인증 모듈 테스트 작성</div>
+                    </div>
+                  </div>
+                  <span class="fc-dur">4h</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-row event">
+              <div class="time-col">
+                <span class="t">14:00</span>
+                <span class="t-end">15:00</span>
+              </div>
+              <div class="body-col">
+                <div class="ev-card">
+                  <span class="accent-bar" style="background:var(--lilac)"></span>
+                  <div class="ev-head">
+                    <div class="ev-title">Toss TPM 면접 준비</div>
+                    <span class="dur">1h</span>
+                  </div>
+                  <div class="ev-meta">
+                    <span class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.5-3 4-4.5 7-4.5s5.5 1.5 7 4.5"/></svg>혼자</span>
+                    <span class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h11l3 3v13H5z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>준비 노트 5장</span>
+                  </div>
+                  <div class="ev-actions">
+                    <a class="mini-btn" href="things:///add?title=면접%20질문%20정리&when=today" data-things>+ Things</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-row">
+              <div class="time-col">
+                <span class="t">15:00</span>
+                <span class="t-end">19:00</span>
+              </div>
+              <div class="body-col">
+                <div class="focus-card">
+                  <div class="fc-l">
+                    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></span>
+                    <div>
+                      <div class="fc-title">집중 작업 가능</div>
+                      <div class="fc-sub">AI 추천 · PR 리뷰 회신 + 노트 정리</div>
+                    </div>
+                  </div>
+                  <span class="fc-dur">4h</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-row event">
+              <div class="time-col">
+                <span class="t">19:00</span>
+                <span class="t-end">20:00</span>
+              </div>
+              <div class="body-col">
+                <div class="ev-card">
+                  <span class="accent-bar" style="background:var(--coral)"></span>
+                  <div class="ev-head">
+                    <div class="ev-title">저녁 약속</div>
+                    <span class="dur">1h</span>
+                  </div>
+                  <div class="ev-meta">
+                    <span class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>강남역</span>
+                    <span class="m">
+                      <span class="avatars">
+                        <span style="background:var(--lilac);color:var(--lilac-ink)">SE</span>
+                        <span style="background:var(--lime);color:var(--lime-ink)">JY</span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- IDEA OF THE DAY (full-bleed feature card) -->
+      <section class="idea col-12" data-screen-label="04C Idea">
+        <div class="stripe" aria-hidden="true"></div>
+        <div class="idea-grid">
+          <div>
+            <div class="lab">◐ Idea of the Day · 04 / 25</div>
+            <h3>AI 기반 개인 튜터링 플랫폼</h3>
+            <p class="desc">학생별 학습 패턴(풀이 시간·오답 군집·집중도)을 분석해 매주 맞춤 커리큘럼과 문제 난이도를 자동 조정. 기존 인강·문제집 시장의 "일방향 콘텐츠" 한계를 보완하는 적응형 학습 레이어.</p>
+            <div class="actions">
+              <a class="mini-btn ghost" href="#" target="_blank" rel="noopener">원문 보기 →</a>
+              <a class="mini-btn" href="things:///add?title=AI%20튜터링%20아이디어%20검토&when=today&tags=morning-briefing" data-things>+ Things "아이디어 검토"</a>
+            </div>
+          </div>
+          <div>
+            <div class="lab" style="margin-bottom:8px">AI 분석</div>
+            <div class="meta">
+              <div class="m"><div class="k">시장성</div><div class="v">중상 · K-edtech 6.8조</div></div>
+              <div class="m"><div class="k">기술 난이도</div><div class="v">중 · 데이터 의존</div></div>
+              <div class="m"><div class="k">내 프로젝트</div><div class="v">★★★★ <span style="opacity:.5">★</span> StudOX와 직결</div></div>
+            </div>
+            <p class="desc" style="margin-top:14px;font-size:13px">StudOX의 퀴즈 생성 엔진과 학습 로그 스키마를 그대로 확장 가능 — 별도 신규 인프라 없이 6주 내 PoC 가시권.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4-1: Important Emails -->
+      <section class="card col-7" data-screen-label="04A Important Emails">
+        <div class="head">
+          <div class="title">
+            <span class="num">04A</span>
+            <h2>Important <span class="ko">중요 이메일 · 2통</span></h2>
+          </div>
+          <div style="display:flex;gap:6px;align-items:center">
+            <span class="mono small muted">사람 발신만</span>
+            <button class="iconbtn toggle" data-toggle aria-label="접기">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="body">
+          <div class="email-list">
+            <a class="email" href="https://mail.google.com" target="_blank" rel="noopener">
+              <div class="avatar" style="background:var(--lilac);color:var(--lilac-ink);border-color:transparent">김</div>
+              <div>
+                <div class="who"><b>김팀장</b> · kim.tl@company.kr <span class="muted mono" style="font-size:10.5px;padding:1px 5px;border-radius:4px;background:var(--coral);color:var(--coral-ink)">URGENT</span></div>
+                <div class="subj">프로젝트 일정 변경 건</div>
+                <div class="sum">다음 주 마감이던 결제 모듈이 이번 주 금요일로 앞당겨졌어요. 영향 범위 회신 부탁드립니다.</div>
+              </div>
+              <div class="when">07:42</div>
+            </a>
+            <a class="email" href="https://mail.google.com" target="_blank" rel="noopener">
+              <div class="avatar" style="background:var(--lime);color:var(--lime-ink);border-color:transparent">이</div>
+              <div>
+                <div class="who"><b>이대리</b> · lee.daeri@company.kr</div>
+                <div class="subj">API 스펙 리뷰 요청</div>
+                <div class="sum">결제 API v2 스펙 검토 부탁드립니다 — 특히 환불 플로우와 멱등키 처리 부분.</div>
+              </div>
+              <div class="when">06:31</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4-2: Newsletters -->
+      <section class="card col-5" data-screen-label="04B Newsletters">
+        <div class="head">
+          <div class="title">
+            <span class="num">04B</span>
+            <h2>Newsletters <span class="ko">뉴스레터 · 2건</span></h2>
+          </div>
+          <button class="iconbtn toggle" data-toggle aria-label="접기">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </div>
+        <div class="body">
+          <div class="nl">
+            <div class="src"><span class="badge">G</span>GeekNews Weekly · #218</div>
+            <h4>AI 에이전트 프레임워크 비교, Rust 2026 로드맵</h4>
+            <ul>
+              <li>LangGraph vs CrewAI vs Anthropic Agents SDK — 도구 호출 신뢰도 격차</li>
+              <li>Rust 2026: async trait 안정화, 컴파일 시간 28% 개선 목표</li>
+              <li>Vercel, Edge Runtime을 V8 isolates에서 Wasm으로 전환 발표</li>
+            </ul>
+            <div class="actions"><a class="mini-btn" href="https://mail.google.com" target="_blank" rel="noopener">원문 보기 →</a></div>
+          </div>
+          <div class="nl">
+            <div class="src"><span class="badge" style="background:var(--coral);color:var(--coral-ink)">T</span>TLDR Tech · 04·25</div>
+            <h4>OpenAI 신규 모델, GitHub Copilot 업데이트</h4>
+            <ul>
+              <li>OpenAI, 추론 최적화 모델 'o5-mini' 베타 — 비용 70%↓</li>
+              <li>GitHub Copilot, 멀티파일 리팩토링 정식 출시</li>
+              <li>Hugging Face, 1B 파라미터 한국어 SLM 공개</li>
+            </ul>
+            <div class="actions"><a class="mini-btn" href="https://mail.google.com" target="_blank" rel="noopener">원문 보기 →</a></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: News -->
+      <section class="card col-12" data-screen-label="05 News">
+        <div class="head">
+          <div class="title">
+            <span class="num">05</span>
+            <h2>News <span class="ko">테크 & 경제 브리핑</span></h2>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <div class="tabs" id="newsTabs">
+              <button class="on" data-cat="tech">테크 · 3</button>
+              <button data-cat="econ">경제 · 3</button>
+            </div>
+            <button class="iconbtn toggle" data-toggle aria-label="접기">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="body">
+          <div class="ai-note" style="margin:0 0 14px">
+            <span class="ai-ico">AI</span>
+            <div id="newsAi">전반적으로 <b>거대 모델 출시 + 인프라 효율화</b> 흐름. 한국 AI 검색 개편과 맞물려 검색·에이전트 영역 경쟁이 가속됩니다.</div>
+          </div>
+
+          <div class="news-grid" id="newsList">
+            <!-- populated by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: Today's Actions -->
+      <section class="card col-12" data-screen-label="06 Actions" style="background:var(--moss);color:var(--moss-ink);border-color:transparent">
+        <div class="head">
+          <div class="title">
+            <span class="num" style="color:color-mix(in oklab, var(--moss-ink) 60%, transparent)">06</span>
+            <h2 style="color:var(--moss-ink)">Today's Actions <span class="ko" style="color:color-mix(in oklab, var(--moss-ink) 75%, transparent)">AI 추천 · 4건</span></h2>
+          </div>
+          <div style="display:flex;gap:8px">
+            <a class="mini-btn solid" style="background:var(--lime);color:var(--lime-ink);border-color:transparent" id="addAll" href="#">전체 Things에 추가 ↗</a>
+            <button class="iconbtn toggle" data-toggle aria-label="접기" style="border-color:color-mix(in oklab, var(--moss-ink) 25%, transparent);color:var(--moss-ink)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="body" id="actionList">
+          <!-- populated by JS -->
+        </div>
+      </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="gen">생성 · 2026-04-25 06:00 KST · v1.04 · 14 sources</div>
+      <div class="sources">
+        <span class="muted small">데이터</span>
+        <span class="ico" title="Calendar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
+        <span class="ico" title="Gmail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg></span>
+        <span class="ico" title="Obsidian"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 5v10l-8 5-8-5V7z"/><path d="M12 12l4-3M12 12l-4 3M12 12v6"/></svg></span>
+        <span class="ico" title="News"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h13v14H4z"/><path d="M17 8h3v9a2 2 0 0 1-2 2h-1"/><path d="M7 9h7M7 12h7M7 15h5"/></svg></span>
+        <a class="mini-btn" href="obsidian://open?vault=Separk&file=04_Daily/2026/2026-04-25" style="margin-left:6px">오늘 데일리노트 열기 ↗</a>
+      </div>
+    </div>
+
+  </div>
+
+<script>
+  // ----- THEME -----
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('themeBtn');
+  const themeLbl = document.getElementById('themeLbl');
+  const setTheme = (t) => {
+    root.setAttribute('data-theme', t);
+    themeLbl.textContent = t === 'dark' ? 'Dark' : 'Light';
+    try { localStorage.setItem('mb_theme', t); } catch(e){}
+  };
+  try {
+    const saved = localStorage.getItem('mb_theme');
+    if (saved) setTheme(saved);
+    else if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
+  } catch(e){}
+  themeBtn.addEventListener('click', () => {
+    setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  // ----- COLLAPSE -----
+  document.querySelectorAll('[data-toggle]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      btn.closest('.card, section').classList.toggle('collapsed');
+    });
+  });
+  document.getElementById('expandAll').addEventListener('click', () => {
+    const anyCollapsed = document.querySelectorAll('.collapsed').length > 0;
+    document.querySelectorAll('.card, section.card').forEach(c => {
+      c.classList.toggle('collapsed', !anyCollapsed);
+    });
+  });
+
+  // ----- TAGS -> Obsidian -----
+  document.querySelectorAll('[data-obsidian]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      const q = encodeURIComponent(el.dataset.obsidian);
+      window.location.href = `obsidian://search?vault=Separk&query=${q}`;
+    });
+  });
+
+  // ----- NEWS DATA -----
+  const news = {
+    tech: [
+      { src:'The Verge', time:'05:42', title:'OpenAI, GPT-5 출시 임박', sum:'추론 비용을 절반 이하로 낮추는 새 아키텍처. 기업용 우선 롤아웃 예정으로 알려짐.' },
+      { src:'조선비즈',  time:'06:11', title:'네이버, AI 검색 전면 개편', sum:'기존 통합검색 UI를 대화형으로 전환. 광고 슬롯 재설계로 매출 영향 변수.' },
+      { src:'Apple Newsroom', time:'04:30', title:'애플 WWDC 2026 예고', sum:'온디바이스 LLM과 새 시리 SDK 공개 가능성. 6월 9일 키노트 확정.' },
+    ],
+    econ: [
+      { src:'한국경제', time:'06:00', title:'한국은행 기준금리 동결', sum:'3.25% 유지. 금통위, 환율 변동성과 가계부채를 동결 근거로 제시.' },
+      { src:'매일경제', time:'05:55', title:'코스피 2,800 돌파', sum:'반도체·이차전지 동반 강세. 외국인 5거래일 연속 순매수.' },
+      { src:'Bloomberg', time:'04:12', title:'미중 반도체 규제 완화 조짐', sum:'장비 수출 통제 일부 품목 완화 검토. 국내 장비주 수혜 기대감.' },
+    ]
+  };
+  const aiByCat = {
+    tech: '거대 모델 출시 + 인프라 효율화 흐름. 한국 AI 검색 개편과 맞물려 검색·에이전트 영역 경쟁이 가속됩니다.',
+    econ: '금리 동결 + 외국인 매수세로 위험자산 선호 회복. 반도체 규제 완화 시그널이 단기 모멘텀.'
+  };
+  const newsList = document.getElementById('newsList');
+  const newsAi = document.getElementById('newsAi');
+  const renderNews = (cat) => {
+    newsList.innerHTML = news[cat].map(n => `
+      <a class="news-item" href="#" target="_blank" rel="noopener">
+        <div class="src"><span>${n.src}</span><span>${n.time}</span></div>
+        <h4>${n.title}</h4>
+        <div class="sum">${n.sum}</div>
+      </a>
+    `).join('');
+    newsAi.innerHTML = `<b>${cat==='tech'?'테크':'경제'} 트렌드</b> — ${aiByCat[cat]}`;
+  };
+  renderNews('tech');
+  document.querySelectorAll('#newsTabs button').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('#newsTabs button').forEach(x => x.classList.remove('on'));
+      b.classList.add('on');
+      renderNews(b.dataset.cat);
+    });
+  });
+
+  // ----- ACTIONS -----
+  const actions = [
+    { t:'인증 모듈 테스트 코드 작성', src:'어제 회고', srcType:'retro' },
+    { t:'API 스펙 리뷰 회신 (결제 v2)', src:'이메일 · 이대리', srcType:'email' },
+    { t:'Toss TPM 면접 질문 정리', src:'오늘 일정 · 14:00', srcType:'schedule' },
+    { t:'AI 튜터링 아이디어 노트 작성', src:'Idea of the Day', srcType:'idea' },
+  ];
+  const actionList = document.getElementById('actionList');
+  actionList.innerHTML = actions.map((a,i) => `
+    <div class="action" data-i="${i}" style="background:color-mix(in oklab, white 8%, transparent);border-color:color-mix(in oklab, white 14%, transparent)">
+      <div class="checkbox" style="border-color:color-mix(in oklab, var(--moss-ink) 45%, transparent)">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg>
+      </div>
+      <div class="body">
+        <div class="at-text">${a.t}</div>
+        <div class="src" style="color:color-mix(in oklab, var(--moss-ink) 70%, transparent)">
+          <span style="opacity:.7">↳ from</span>
+          <span class="src-tag" style="background:transparent;border-color:color-mix(in oklab, var(--moss-ink) 30%, transparent);color:var(--moss-ink)">${a.src}</span>
+        </div>
+      </div>
+      <a class="mini-btn" data-things href="things:///add?title=${encodeURIComponent(a.t)}&when=today&tags=morning-briefing" style="background:var(--moss-ink);color:var(--moss);border-color:transparent">+ Things</a>
+    </div>
+  `).join('');
+
+  actionList.querySelectorAll('.checkbox').forEach(cb => {
+    cb.addEventListener('click', (e) => {
+      e.stopPropagation();
+      cb.closest('.action').classList.toggle('done');
+    });
+  });
+
+  document.getElementById('addAll').addEventListener('click', (e) => {
+    e.preventDefault();
+    const titles = actions.map(a => a.t).join('\n');
+    const url = `things:///add?titles=${encodeURIComponent(titles)}&when=today&tags=morning-briefing`;
+    window.location.href = url;
+  });
+</script>
+</body>
+</html>
