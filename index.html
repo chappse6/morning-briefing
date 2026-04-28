@@ -78,7 +78,7 @@
   .chip:hover{transform:translateY(-1px);background:var(--paper-2)}
   .chip svg{width:14px;height:14px}
 
-  .hero{display:grid;grid-template-columns: 1.4fr .6fr;gap:var(--gap);margin-bottom:var(--gap);}
+  .hero{display:grid;grid-template-columns: 1.2fr .8fr;gap:var(--gap);margin-bottom:var(--gap);}
   @media (max-width:900px){.hero{grid-template-columns:1fr}}
 
   .hero-left{
@@ -383,6 +383,19 @@
 
     <!-- HERO: greeting + AI insight -->
     <div class="hero">
+      <div class="hero-right">
+        <div class="ai-mark"></div>
+        <div>
+          <div class="tag" style="background:transparent;border:none;padding:0;color:inherit;font-family:'Geist Mono',monospace;letter-spacing:.22em;font-size:10.5px;text-transform:uppercase;opacity:.85;">◌ Daily AI Insight</div>
+          <h3 style="margin-top:10px;">화요일, 캘린더가 비어 있는 드문 날. 어제 정리한 <span style="border-bottom:2px solid var(--lime);padding-bottom:2px;">TPU 메모</span>가 오늘 헤드라인(GPT-5.4, DeepSeek V4)과 정확히 같은 결을 그리고 있어요.</h3>
+          <p style="margin:10px 0 0;font-size:13.5px;line-height:1.6;color:color-mix(in oklab, var(--moss-ink) 80%, transparent)">자유시간 — TPU 메모를 1쪽으로 다듬어 <b style="color:var(--moss-ink);font-weight:600">06_Wiki</b>에 정착시키거나, 원티드 센트비 Backend 포지션(마감 5/1) 검토 중 하나를 깊게.</p>
+        </div>
+        <div class="ai-foot">
+          <span><span class="dotpulse" style="display:inline-block;vertical-align:middle;margin-right:8px"></span>SYNTH · KST</span>
+          <span>9 sources</span>
+        </div>
+      </div>
+
       <div class="hero-left">
         <div class="date-row">
           <span class="date">2026·04·28</span>
@@ -405,19 +418,6 @@
           <span class="pill"><span class="n">6</span><span class="k">뉴스</span></span>
           <span class="pill"><span class="n">5</span><span class="k">추천 액션</span></span>
           <span class="pill" style="background:var(--lime);border-color:transparent;color:var(--lime-ink)"><span class="n">종일</span><span class="k" style="color:var(--lime-ink);opacity:.7">자유시간</span></span>
-        </div>
-      </div>
-
-      <div class="hero-right">
-        <div class="ai-mark"></div>
-        <div>
-          <div class="tag" style="background:transparent;border:none;padding:0;color:inherit;font-family:'Geist Mono',monospace;letter-spacing:.22em;font-size:10.5px;text-transform:uppercase;opacity:.85;">◌ Daily AI Insight</div>
-          <h3 style="margin-top:10px;">화요일, 캘린더가 비어 있는 드문 날. 어제 정리한 <span style="border-bottom:2px solid var(--lime);padding-bottom:2px;">TPU 메모</span>가 오늘 헤드라인(GPT-5.4, DeepSeek V4)과 정확히 같은 결을 그리고 있어요.</h3>
-          <p style="margin:10px 0 0;font-size:13.5px;line-height:1.6;color:color-mix(in oklab, var(--moss-ink) 80%, transparent)">자유시간 — TPU 메모를 1쪽으로 다듬어 <b style="color:var(--moss-ink);font-weight:600">06_Wiki</b>에 정착시키거나, 원티드 센트비 Backend 포지션(마감 5/1) 검토 중 하나를 깊게.</p>
-        </div>
-        <div class="ai-foot">
-          <span><span class="dotpulse" style="display:inline-block;vertical-align:middle;margin-right:8px"></span>SYNTH · KST</span>
-          <span>9 sources</span>
         </div>
       </div>
     </div>
