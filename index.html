@@ -166,10 +166,10 @@
   .retro-list li .bullet{width:18px;height:18px;flex:none;border-radius:6px;background:var(--paper-2);border:1px solid var(--line);display:grid;place-items:center;color:var(--ink-2);font-family:"Geist Mono",monospace;font-size:10px;margin-top:2px;}
   .retro-list li .bullet.done{background:var(--lime);border-color:transparent;color:var(--lime-ink)}
   .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
-  .tag{display:inline-flex;align-items:center;padding:5px 10px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line);font-size:12px;color:var(--ink);cursor:pointer;font-family:"Geist Mono",monospace;letter-spacing:.01em;transition:all .2s ease;text-decoration:none}
+  .tag{display:inline-flex;align-items:center;padding:5px 11px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line);font-size:12.5px;color:var(--ink);cursor:pointer;font-family:"Geist Mono","Pretendard Variable",Pretendard,ui-monospace,monospace;font-weight:500;letter-spacing:-.005em;transition:all .2s ease;text-decoration:none}
   .tag:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-  .tag .h{color:var(--ink-3);margin-right:2px}
-  .tag:hover .h{color:color-mix(in oklab, var(--bg) 70%, transparent)}
+  .tag .h{color:var(--ink-3);margin-right:3px;font-weight:400;opacity:.75}
+  .tag:hover .h{color:color-mix(in oklab, var(--bg) 70%, transparent);opacity:.9}
 
   .ai-note{margin-top:16px;padding:12px 14px;border-radius:14px;background:color-mix(in oklab, var(--lime) 20%, var(--paper));border:1px dashed color-mix(in oklab, var(--lime) 50%, var(--ink-3));font-size:13px;color:var(--ink);line-height:1.55;display:flex;gap:10px;align-items:flex-start}
   .ai-note .ai-ico{width:18px;height:18px;flex:none;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-family:"Geist Mono",monospace;font-size:10px;font-weight:600}
@@ -299,7 +299,7 @@
   .stats-strip .s:last-child{border-right:none}
   .stats-strip .s .k{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
   .stats-strip .s .v{font-size:22px;font-weight:600;letter-spacing:-.02em;margin-top:4px}
-  .stats-strip .s .v small{font-size:12px;color:var(--ink-2);margin-left:4px;font-weight:400;font-family:"Geist Mono",monospace}
+  .stats-strip .s .v small{font-size:12.5px;color:var(--ink-2);margin-left:5px;font-weight:500;font-family:"Pretendard Variable",Pretendard,-apple-system,system-ui,sans-serif;letter-spacing:-.005em}
   @media (max-width:560px){.stats-strip{grid-template-columns:repeat(2,1fr)} .stats-strip .s:nth-child(2){border-right:none} .stats-strip .s:nth-child(1),.stats-strip .s:nth-child(2){border-bottom:1px solid var(--line)}}
 
   .body{transition: opacity .25s ease}
