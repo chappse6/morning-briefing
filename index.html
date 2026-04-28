@@ -58,7 +58,7 @@
     text-rendering:optimizeLegibility;
     transition: background .35s ease, color .35s ease;
   }
-  .mono{font-family:"Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace; font-feature-settings:"tnum","ss01"; letter-spacing:0;}
+  .mono{font-family:"Geist Mono", "Pretendard Variable", Pretendard, ui-monospace, SFMono-Regular, Menlo, monospace; font-feature-settings:"tnum","ss01"; letter-spacing:0;}
 
   .wrap{max-width:1320px;margin:0 auto;padding:28px 24px 80px;}
   @media (max-width:1024px){.wrap{padding:24px 20px 72px}}
@@ -78,7 +78,7 @@
   .chip:hover{transform:translateY(-1px);background:var(--paper-2)}
   .chip svg{width:14px;height:14px}
 
-  .hero{display:grid;grid-template-columns: 1.2fr .8fr;gap:var(--gap);margin-bottom:var(--gap);}
+  .hero{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);margin-bottom:var(--gap);}
   @media (max-width:900px){.hero{grid-template-columns:1fr}}
 
   .hero-left{
@@ -88,7 +88,7 @@
     min-height:240px;
   }
   .date-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-  .date-row .date{font-family:"Geist Mono",monospace;font-size:13px;color:var(--ink-3);letter-spacing:.04em}
+  .date-row .date{font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;font-size:13px;color:var(--ink-3);letter-spacing:.04em}
   .date-row .day-circle{
     width:26px;height:26px;border-radius:50%;
     border:1.2px solid var(--ink);
@@ -105,7 +105,7 @@
   }
   .date-row .weather svg{width:14px;height:14px;color:var(--coral-ink)}
   html[data-theme="dark"] .date-row .weather svg{color:var(--lime)}
-  .date-row .weather .w-temp{font-family:"Geist Mono",monospace;font-weight:600;letter-spacing:.01em;}
+  .date-row .weather .w-temp{font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;font-weight:600;letter-spacing:.01em;}
   .date-row .weather .w-temp .w-range{color:var(--ink-3);font-weight:400;margin-left:3px;}
   .date-row .weather .w-loc{color:var(--ink-2);font-size:11.5px;padding-left:8px;border-left:1px solid var(--line);}
   .greet{font-size:clamp(36px, 4.8vw, 56px);line-height:1.02;letter-spacing:-0.028em;font-weight:600;margin:0;}
@@ -113,7 +113,7 @@
   .greet em::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.32em;background:var(--lime);z-index:-1;border-radius:2px;}
   .summary-line{display:flex;flex-wrap:wrap;gap:18px 22px;color:var(--ink-2);font-size:14px;align-items:center;}
   .summary-line .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line)}
-  .summary-line .pill .n{font-family:"Geist Mono",monospace;font-weight:600;color:var(--ink)}
+  .summary-line .pill .n{font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;font-weight:600;color:var(--ink)}
   .summary-line .pill .k{color:var(--ink-3);font-size:12.5px}
 
   .hero-right{
@@ -128,7 +128,7 @@
     background:radial-gradient(circle at 30% 30%, var(--lime), transparent 60%);
     filter:blur(2px);opacity:.55;
   }
-  .ai-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:"Geist Mono",monospace;font-size:11.5px;color:color-mix(in oklab, var(--moss-ink) 70%, transparent);}
+  .ai-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;font-size:11.5px;color:color-mix(in oklab, var(--moss-ink) 70%, transparent);}
   .ai-foot .dotpulse{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 var(--lime);animation:pulse2 1.8s ease-out infinite}
   @keyframes pulse2{0%{box-shadow:0 0 0 0 color-mix(in oklab, var(--lime) 60%, transparent)}80%,100%{box-shadow:0 0 0 14px transparent}}
 
@@ -138,7 +138,7 @@
   .card.flat{box-shadow:none}
   .card .head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;}
   .card .head .title{display:flex;align-items:center;gap:10px;}
-  .card .head .title .num{font-family:"Geist Mono",monospace;font-size:11px;color:var(--ink-3);letter-spacing:.08em}
+  .card .head .title .num{font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;font-size:11px;color:var(--ink-3);letter-spacing:.08em}
   .card .head .title h2{margin:0;font-size:14px;letter-spacing:.02em;font-weight:600;color:var(--ink)}
   .card .head .title h2 .ko{color:var(--ink-2);font-weight:500;margin-left:6px;font-size:12.5px}
   .iconbtn{width:28px;height:28px;display:grid;place-items:center;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--ink-2);cursor:pointer;transition:all .2s ease}
@@ -163,7 +163,7 @@
   /* RETRO */
   .retro-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
   .retro-list li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--ink);line-height:1.5}
-  .retro-list li .bullet{width:18px;height:18px;flex:none;border-radius:6px;background:var(--paper-2);border:1px solid var(--line);display:grid;place-items:center;color:var(--ink-2);font-family:"Geist Mono",monospace;font-size:10px;margin-top:2px;}
+  .retro-list li .bullet{width:18px;height:18px;flex:none;border-radius:6px;background:var(--paper-2);border:1px solid var(--line);display:grid;place-items:center;color:var(--ink-2);font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;font-size:10px;margin-top:2px;}
   .retro-list li .bullet.done{background:var(--lime);border-color:transparent;color:var(--lime-ink)}
   .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
   .tag{display:inline-flex;align-items:center;padding:5px 11px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line);font-size:12.5px;color:var(--ink);cursor:pointer;font-family:"Geist Mono","Pretendard Variable",Pretendard,ui-monospace,monospace;font-weight:500;letter-spacing:-.005em;transition:all .2s ease;text-decoration:none}
@@ -172,7 +172,7 @@
   .tag:hover .h{color:color-mix(in oklab, var(--bg) 70%, transparent);opacity:.9}
 
   .ai-note{margin-top:16px;padding:12px 14px;border-radius:14px;background:color-mix(in oklab, var(--lime) 20%, var(--paper));border:1px dashed color-mix(in oklab, var(--lime) 50%, var(--ink-3));font-size:13px;color:var(--ink);line-height:1.55;display:flex;gap:10px;align-items:flex-start}
-  .ai-note .ai-ico{width:18px;height:18px;flex:none;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-family:"Geist Mono",monospace;font-size:10px;font-weight:600}
+  .ai-note .ai-ico{width:18px;height:18px;flex:none;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;font-size:10px;font-weight:600}
   html[data-theme="dark"] .ai-note{background:color-mix(in oklab, var(--lime) 14%, var(--paper))}
 
   /* SCHEDULE TIMELINE */
@@ -180,8 +180,8 @@
   .timeline::before{content:"";position:absolute;left:63px;top:6px;bottom:6px;width:1px;background:var(--line);}
   .tl-row{display:contents;}
   .tl-row .time-col{padding:14px 14px 0 0;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
-  .tl-row .time-col .t{font-family:"Geist Mono",monospace;font-size:12px;color:var(--ink);letter-spacing:.01em;line-height:1;font-weight:500;}
-  .tl-row .time-col .t-end{font-family:"Geist Mono",monospace;font-size:10.5px;color:var(--ink-3);line-height:1;}
+  .tl-row .time-col .t{font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;font-size:12px;color:var(--ink);letter-spacing:.01em;line-height:1;font-weight:500;}
+  .tl-row .time-col .t-end{font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;font-size:10.5px;color:var(--ink-3);line-height:1;}
   .tl-row .body-col{position:relative;padding:8px 0 8px 18px;}
   .tl-row .body-col::before{content:"";position:absolute;left:-4.5px;top:18px;width:9px;height:9px;border-radius:50%;background:var(--paper);border:2px solid var(--ink-3);z-index:1;}
   .tl-row.event .body-col::before{background:var(--ink);border-color:var(--ink);}
@@ -192,13 +192,13 @@
   .ev-card.now .accent-bar{background:var(--lime);}
   .ev-card .ev-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:6px;}
   .ev-card .ev-title{font-size:15px;font-weight:600;letter-spacing:-.01em;line-height:1.3;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-  .ev-card .badge-now{font-family:"Geist Mono",monospace;font-size:9.5px;letter-spacing:.1em;padding:3px 7px;border-radius:5px;background:var(--lime);color:var(--lime-ink);text-transform:uppercase;font-weight:600;}
-  .ev-card .dur{font-family:"Geist Mono",monospace;font-size:11px;color:var(--ink-3);white-space:nowrap;padding-top:3px;}
+  .ev-card .badge-now{font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;font-size:9.5px;letter-spacing:.1em;padding:3px 7px;border-radius:5px;background:var(--lime);color:var(--lime-ink);text-transform:uppercase;font-weight:600;}
+  .ev-card .dur{font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;font-size:11px;color:var(--ink-3);white-space:nowrap;padding-top:3px;}
   .ev-card .ev-meta{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink-2);align-items:center;margin-top:4px;}
   .ev-card .ev-meta .m{display:inline-flex;align-items:center;gap:5px;}
   .ev-card .ev-meta svg{width:12px;height:12px;color:var(--ink-3);}
   .ev-card .avatars{display:inline-flex;}
-  .ev-card .avatars span{width:20px;height:20px;border-radius:50%;background:var(--paper-2);border:1.5px solid var(--paper);font-size:9px;font-weight:600;display:grid;place-items:center;color:var(--ink-2);margin-left:-5px;font-family:"Geist Mono",monospace;}
+  .ev-card .avatars span{width:20px;height:20px;border-radius:50%;background:var(--paper-2);border:1.5px solid var(--paper);font-size:9px;font-weight:600;display:grid;place-items:center;color:var(--ink-2);margin-left:-5px;font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;}
   .ev-card .avatars span:first-child{margin-left:0;}
   .ev-card .ev-actions{display:flex;gap:6px;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);}
   .focus-card{padding:10px 14px;border-radius:12px;border:1px dashed color-mix(in oklab, var(--lime) 60%, var(--ink-3));background:color-mix(in oklab, var(--lime) 10%, var(--paper));color:var(--ink-2);display:flex;justify-content:space-between;align-items:center;gap:10px;}
@@ -207,9 +207,9 @@
   .focus-card .fc-l .ic{width:24px;height:24px;border-radius:7px;background:var(--lime);color:var(--lime-ink);display:grid;place-items:center;flex:none;}
   .focus-card .fc-l .ic svg{width:13px;height:13px;}
   .focus-card .fc-title{font-size:13px;font-weight:600;color:var(--ink);letter-spacing:-.005em;}
-  .focus-card .fc-sub{font-size:11.5px;color:var(--ink-2);font-family:"Geist Mono",monospace;margin-top:2px;}
-  .focus-card .fc-dur{font-family:"Geist Mono",monospace;font-size:11px;color:var(--ink-2);background:var(--paper);border:1px solid var(--line);padding:3px 8px;border-radius:999px;flex:none;}
-  .mini-btn{font-family:"Geist Mono",monospace;font-size:11px;padding:5px 9px;border-radius:7px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all .2s ease}
+  .focus-card .fc-sub{font-size:11.5px;color:var(--ink-2);font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;margin-top:2px;}
+  .focus-card .fc-dur{font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;font-size:11px;color:var(--ink-2);background:var(--paper);border:1px solid var(--line);padding:3px 8px;border-radius:999px;flex:none;}
+  .mini-btn{font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;font-size:11px;padding:5px 9px;border-radius:7px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all .2s ease}
   .mini-btn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
   .mini-btn.solid{background:var(--ink);color:var(--bg);border-color:var(--ink)}
   .mini-btn.solid:hover{background:transparent;color:var(--ink)}
@@ -218,16 +218,16 @@
   .email-list{display:flex;flex-direction:column;gap:8px}
   .email{display:grid;grid-template-columns:36px 1fr auto;gap:12px;padding:12px 12px;border-radius:12px;align-items:center;cursor:pointer;border:1px solid transparent;transition:all .2s ease;text-decoration:none;color:inherit}
   .email:hover{background:var(--paper-2);border-color:var(--line)}
-  .avatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:600;font-size:13px;color:var(--ink);background:var(--paper-2);border:1px solid var(--line);font-family:"Geist Mono",monospace;}
+  .avatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:600;font-size:13px;color:var(--ink);background:var(--paper-2);border:1px solid var(--line);font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;}
   .email .who{font-size:12px;color:var(--ink-2);margin-bottom:2px;display:flex;gap:8px;align-items:center}
   .email .who b{color:var(--ink);font-weight:600}
   .email .subj{font-size:14px;font-weight:600;letter-spacing:-.005em;line-height:1.35;margin-bottom:3px}
   .email .sum{font-size:12.5px;color:var(--ink-2);line-height:1.5}
-  .email .when{font-family:"Geist Mono",monospace;font-size:11px;color:var(--ink-3);align-self:flex-start;padding-top:2px;white-space:nowrap}
+  .email .when{font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;font-size:11px;color:var(--ink-3);align-self:flex-start;padding-top:2px;white-space:nowrap}
 
   .nl{padding:14px;border-radius:14px;background:var(--paper-2);border:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
   .nl + .nl{margin-top:10px}
-  .nl .src{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);font-family:"Geist Mono",monospace;display:flex;align-items:center;gap:8px}
+  .nl .src{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;display:flex;align-items:center;gap:8px}
   .nl .src .badge{padding:2px 7px;border-radius:5px;background:var(--ink);color:var(--bg);font-size:10px;letter-spacing:.06em}
   .nl h4{margin:0;font-size:15px;font-weight:600;letter-spacing:-.005em;line-height:1.3}
   .nl ul{margin:2px 0 0;padding-left:16px;font-size:13px;color:var(--ink-2);line-height:1.6}
@@ -244,14 +244,14 @@
   .idea .stripe{position:absolute;inset:auto -40px -40px auto;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle at 30% 30%, color-mix(in oklab, var(--lime) 70%, transparent), transparent 65%);opacity:.7}
   .idea-grid{display:grid;grid-template-columns: 1.2fr 1fr; gap:20px; position:relative; z-index:1}
   @media (max-width:900px){.idea-grid{grid-template-columns:1fr}}
-  .idea .lab{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-family:"Geist Mono",monospace;color:color-mix(in oklab, var(--coral-ink) 80%, transparent)}
+  .idea .lab{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;color:color-mix(in oklab, var(--coral-ink) 80%, transparent)}
   .idea h3{margin:6px 0 10px;font-size:30px;line-height:1.05;letter-spacing:-.02em;font-weight:600;}
   .idea h3 .serif{font-weight:400;}
   .idea .desc{font-size:14px;line-height:1.6;color:color-mix(in oklab, var(--coral-ink) 88%, transparent)}
   .idea .meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
   .idea .meta .m{padding:10px 12px;background:color-mix(in oklab, white 40%, transparent);border-radius:12px;border:1px solid color-mix(in oklab, var(--coral-ink) 18%, transparent);}
   html[data-theme="dark"] .idea .meta .m{background:color-mix(in oklab, black 25%, transparent);border-color:color-mix(in oklab, white 14%, transparent);}
-  .idea .meta .m .k{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:color-mix(in oklab, var(--coral-ink) 70%, transparent);font-family:"Geist Mono",monospace}
+  .idea .meta .m .k{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:color-mix(in oklab, var(--coral-ink) 70%, transparent);font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace}
   .idea .meta .m .v{font-size:14px;font-weight:600;margin-top:3px}
   .idea .actions{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}
   .idea .mini-btn{background:var(--coral-ink);color:var(--coral);border-color:transparent}
@@ -267,7 +267,7 @@
   @media (max-width:560px){.news-grid{grid-template-columns:1fr}}
   .news-item{padding:14px;border-radius:14px;background:var(--paper-2);border:1px solid var(--line);display:flex;flex-direction:column;gap:8px;cursor:pointer;transition:all .2s ease;text-decoration:none;color:inherit;min-height:152px}
   .news-item:hover{transform:translateY(-2px);border-color:var(--ink)}
-  .news-item .src{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);font-family:"Geist Mono",monospace;display:flex;justify-content:space-between}
+  .news-item .src{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;display:flex;justify-content:space-between}
   .news-item h4{margin:0;font-size:15px;line-height:1.3;letter-spacing:-.005em;font-weight:600}
   .news-item .sum{font-size:12.5px;color:var(--ink-2);line-height:1.55;margin-top:auto}
 
@@ -280,12 +280,12 @@
   .action.done .at-text{text-decoration:line-through;color:var(--ink-3)}
   .action .body{display:flex;flex-direction:column;gap:3px;min-width:0}
   .action .at-text{font-size:14px;font-weight:500;letter-spacing:-.005em}
-  .action .src{font-family:"Geist Mono",monospace;font-size:11px;color:var(--ink-3);display:flex;align-items:center;gap:6px}
+  .action .src{font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;font-size:11px;color:var(--ink-3);display:flex;align-items:center;gap:6px}
   .action .src .src-tag{padding:2px 6px;border-radius:5px;background:var(--paper);border:1px solid var(--line)}
 
   /* FOOTER */
   .footer{margin-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding:18px 22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-2)}
-  .footer .gen{font-family:"Geist Mono",monospace;letter-spacing:.02em}
+  .footer .gen{font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;letter-spacing:.02em}
   .sources{display:flex;align-items:center;gap:14px}
   .sources .ico{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;background:var(--paper-2);border:1px solid var(--line)}
   .sources .ico svg{width:13px;height:13px;color:var(--ink-2)}
@@ -345,7 +345,7 @@
   .lock-box .lock-err.show{opacity:1}
   .lock-box .lock-hint{
     font-size:11.5px;color:var(--ink-3);margin-top:24px;
-    font-family:"Geist Mono",monospace;letter-spacing:.02em;
+    font-family:"Geist Mono","Pretendard Variable",Pretendard,monospace;letter-spacing:.02em;
   }
 </style>
 </head>
@@ -383,10 +383,10 @@
 
     <!-- HERO: greeting + AI insight -->
     <div class="hero">
-      <div class="hero-right">
+      <div class="hero-right col-7">
         <div class="ai-mark"></div>
         <div>
-          <div class="tag" style="background:transparent;border:none;padding:0;color:inherit;font-family:'Geist Mono',monospace;letter-spacing:.22em;font-size:10.5px;text-transform:uppercase;opacity:.85;">◌ Daily AI Insight</div>
+          <div class="tag" style="background:transparent;border:none;padding:0;color:inherit;font-family:'Geist Mono','Pretendard Variable',Pretendard,monospace;letter-spacing:.22em;font-size:10.5px;text-transform:uppercase;opacity:.85;">◌ Daily AI Insight</div>
           <h3 style="margin-top:10px;">화요일, 캘린더가 비어 있는 드문 날. 어제 정리한 <span style="border-bottom:2px solid var(--lime);padding-bottom:2px;">TPU 메모</span>가 오늘 헤드라인(GPT-5.4, DeepSeek V4)과 정확히 같은 결을 그리고 있어요.</h3>
           <p style="margin:10px 0 0;font-size:13.5px;line-height:1.6;color:color-mix(in oklab, var(--moss-ink) 80%, transparent)">자유시간 — TPU 메모를 1쪽으로 다듬어 <b style="color:var(--moss-ink);font-weight:600">06_Wiki</b>에 정착시키거나, 원티드 센트비 Backend 포지션(마감 5/1) 검토 중 하나를 깊게.</p>
         </div>
@@ -396,7 +396,7 @@
         </div>
       </div>
 
-      <div class="hero-left">
+      <div class="hero-left col-5">
         <div class="date-row">
           <span class="date">2026·04·28</span>
           <span class="day-circle" aria-label="화요일">화</span>
