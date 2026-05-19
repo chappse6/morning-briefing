@@ -53,4 +53,7 @@ tags:
 - ✅ **index.html 생성** — template.html 구조 그대로, PASS_HASH·CSS·JS 미변경. 5/16 데이터(일정 0건·이메일 4·뉴스 6·액션 4)로 채움.
 - ✅ **calendar 확인 완료** — Google Calendar MCP로 5/16 00:00~23:59 (Asia/Seoul) 조회. 이벤트 0건(정상, 토요일 자유시간).
 - ✅ **Gmail 확인 완료** — newer_than:1d 조회 → 프로모션/세일/인증·결제 알림 필터 후 4통 추출(삼성증권 1, Remember 1, LinkedIn 2). 뉴스레터는 IdeaBrowser "Agent auth layer" 1건.
-- ✅ **Git commit 성공** — `1846f25 Daily briefing 2026-05-16 — index.html refresh` (+ `01d1a9b` 의 obsidian-summary). `.git/index.lo
+- ✅ **Git commit 성공** — `1846f25 Daily briefing 2026-05-16 — index.html refresh` (+ `01d1a9b` 의 obsidian-summary). `.git/index.lock`이 Windows에서 점유되어 unlink 불가 → `git hash-object -w` + `git mktree` + `git commit-tree` + `git update-ref` 로 인덱스 우회해 커밋 생성.
+- ⚠️ **Git push 실패** — 워크스페이스 GitHub HTTPS 인증 정보 부재(`fatal: could not read Username for 'https://github.com'`). origin보다 **6 commits ahead**: `1846f25`, `01d1a9b`, `6414d2d`, `f64f24d`, `18bafa9`, `122053e`. Windows에서 한 줄 — `cd C:\Users\chapp\dev\morning-briefing && git push origin master` 실행하면 누적분이 한 번에 푸시되며 GitHub Pages 자동 갱신.
+- ⚠️ **Obsidian vault 미연결** — `C:\Users\chapp\Documents\ObsidianVault` 미마운트. 본 파일이 repo 루트에 대체 백업.
+- ℹ️ **카드 색상 매핑** — 삼성증권 보안메일(coral, 가장 우선), Remember/안랩(lilac), LinkedIn 카카오페이(lime), LinkedIn 채용 매칭(paper-2).
