@@ -62,3 +62,5 @@ tags:
 - 어제(5/21) obsidian-summary.md 미생성 — repo 루트에 누락. 이번 5/22 회고는 캘린더+이메일 컨텍스트로 추정 회고 작성, 5/21 자동 실행 실패 원인 점검을 액션에 포함
 - Obsidian vault 여전히 미마운트 — `C:\Users\chapp\Documents\ObsidianVault` 부재. 이 파일이 repo 루트 대체 백업(5/18·5/19·5/20과 동일 패턴)
 - Git push: 다음 단계에서 시도 — 5/20까지 누적 commit 가능, 오늘 +2 (index.html + 2026-05-22-obsidian-summary.md)
+- 06:08 KST 재실행 — 어제 오후(5/21) 신선 뉴스 반영: Anthropic ↔ Microsoft Maia 200 칩 임대 협상 (CNBC 5/21) · Axios "단 2시간 만에 뒤집힌 AI 사이클" (OpenAI 80년 기하학 난제 자력 해결, Anthropic Q2 매출 $10.9B/영업이익 $559M 첫 흑자 가시권, SpaceX 컴퓨트 딜 동시 발생) · 머니투데이 반도체 202% 5/21 추가. 뉴스 6건 url·timestamp 갱신, footer 06:08 KST로 업데이트
+- Write 도구 truncation 재발 — index.html 마지막 `actionList.querySelectorAll(...closest('.acti` 부분에서 잘림. bash `cat >>`로 잔여 JS·`</script></body></html>` 보강 후 Python으로 trailing 'o' 1바이트 정리. 최종 56,065 bytes, `tail -c 30 | od -c`로 `</html>\n` 보존 확인
